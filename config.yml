@@ -2,29 +2,33 @@
 max-faction-members: 0
 max-faction-power: 0
 max-faction-land: 0
-max-faction-warps: 0
 #The values below cannot be unlimited
 starting-faction-warps: 0
+max-faction-warps: 0
 max-faction-tag-size: 10
 
 #Player values
 max-player-power: 10
 minimum-player-power: -10
 starting-player-power: 10
+loss-of-player-power-pre-death: 2
 
 #Messages
 prefix: "&0[&cFactions&0] &6"
 cannot-claim-no-faction: "Unfortunately you cannot claim here because you have no faction!"
-cannot-do-ftag-no-faction: "You cannot do /f tag since you are not in a faction"
-cannot-do-ftag-not-correct-group: "You cannot do /f tag you are not mod or admin"
+cannot-do-ftag-no-faction: "You cannot do /f tag since you are not in a faction!"
+cannot-do-ftag-not-correct-group: "You cannot do /f tag you are not the faction admin"
 land-claimed: "&6You claimed some land!"
-ftag-no-args: "&6You need to do /f tag <name>"
+ftag-no-args: "&6You need to do /f tag <name>!"
 ftag-in-use: "&6This ftag is in use!"
-ftag-too-long: "&6The faction tag you tried is too long the max is {length}"
+ftag-too-long: "&6The faction tag you tried is too long the max is {length}!"
 fjoin-no-args: "&6Do /f join <fname> to join a faction!
-fjoin-success: "&6You have joined the faction {faction}"
+fjoin-success: "&6You have joined the faction {faction}!"
 fjoin-not-sucessful-closed: "&6You cannot join the faction {faction} it is closed and you do not have an invite!"
 fjoin-faction-does-not-exist: "&6The faction {faction} does not exist!"
+fwarp-no-args: "&6Do /f warp <name> to warp to faction warp!"
+fwarp-no-faction: "&6You cannot warp to a faction warp you are not in a faction!"
+fsetwarp-no-args: "&6Do /f setwarp <name> to set a faction warp!"
 
 #HelpMenu
 top-of-menu:

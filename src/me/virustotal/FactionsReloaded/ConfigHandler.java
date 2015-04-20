@@ -34,7 +34,8 @@ public class ConfigHandler {
 	public static int maxPlayerPower;
 	public static int minimumPlayerPower;
 	public static int startingPlayerPower;
-	
+	public static int lossOfPlayerPerDeath;
+	public static long updatePlayerPowerTicks;
 	
 	//Messages
 	public static String prefix;
@@ -49,6 +50,9 @@ public class ConfigHandler {
 	public static String fJoinSuccess;
 	public static String fJoinNotSuccesfulClosed;
 	public static String fJoinFactionDoesNotExist;
+	public static String fWarpNoArgs;
+	public static String fWarpNoFaction;
+	public static String fSetwarpNoArgs;
 	
 	//Help Menu
 	public static List<String> topOfMenu;
@@ -88,6 +92,8 @@ public class ConfigHandler {
 		ConfigHandler.maxPlayerPower = plugin.getConfig().getInt("max-player-power");
 		ConfigHandler.minimumPlayerPower = plugin.getConfig().getInt("minimum-player-power");
 		ConfigHandler.startingPlayerPower = plugin.getConfig().getInt("starting-player-power");
+		ConfigHandler.lossOfPlayerPerDeath = plugin.getConfig().getInt("loss-of-player-power-per-death");
+		ConfigHandler.updatePlayerPowerTicks = plugin.getConfig().getLong("update-player-power-ticks");
 		
 		/*Messages
 		 * 
@@ -105,6 +111,10 @@ public class ConfigHandler {
 		ConfigHandler.fJoinSuccess = ConfigHandler.prefix + plugin.tConfigString("fjoin-success");
 		ConfigHandler.fJoinNotSuccesfulClosed = ConfigHandler.prefix + plugin.tConfigString("fjoin-not-successful-closed");
 		ConfigHandler.cannotClaimNoFaction = ConfigHandler.prefix + plugin.tConfigString("fjoin-faction-does-not-exist");
+		ConfigHandler.fWarpNoArgs = ConfigHandler.prefix + plugin.tConfigString("fwarp-no-args");
+		ConfigHandler.fWarpNoFaction = ConfigHandler.prefix + plugin.tConfigString("fwarp-no-faction");
+		ConfigHandler.fSetwarpNoArgs = ConfigHandler.prefix + plugin.tConfigString("fsetwarp-no-args");
+		
 		
 		/* Help Menu
 		 * 

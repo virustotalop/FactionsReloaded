@@ -35,7 +35,7 @@ public class FBaseCommand implements CommandExecutor {
 				}
 				else if(arg.equalsIgnoreCase("join"))
 				{
-					FJoin.doCommand(player);
+					return FJoin.doCommand(player);
 				}
 				else if(arg.equalsIgnoreCase("invite"))
 				{
@@ -47,7 +47,15 @@ public class FBaseCommand implements CommandExecutor {
 				}
 				else if(arg.equalsIgnoreCase("tag"))
 				{
-					FTag.doCommand(player);
+					return FTag.doCommand(player);
+				}
+				else if(arg.equalsIgnoreCase("warp"))
+				{
+					return FWarp.doCommand(player);
+				}
+				else if(arg.equalsIgnoreCase("setwarp"))
+				{
+					return FSetWarp.doCommand(player);
 				}
 			}
 			else if(args.length == 2)
@@ -60,7 +68,19 @@ public class FBaseCommand implements CommandExecutor {
 				}
 				else if(arg1.equalsIgnoreCase("tag"))
 				{
-					FTag.doCommandWithArgs(player, arg2);
+					return FTag.doCommandWithArgs(player, arg2);
+				}
+				else if(arg1.equalsIgnoreCase("join"))
+				{
+					return FJoin.doCommandWithArgs(player, arg2);
+				}
+				else if(arg1.equalsIgnoreCase("warp"))
+				{
+					return FWarp.doCommandWithArgs(player, arg2);
+				}
+				else if(arg1.equalsIgnoreCase("setwarp"))
+				{
+					return FSetWarp.doCommandWithArgs(player, arg2);
 				}
 			}
 		}
