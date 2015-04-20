@@ -36,11 +36,7 @@ public class ConfigHandler {
 	//Messages
 	public static String prefix;
 	public static String cannotClaimNoFaction;
-	public static String cannotDoFtagNoFaction;
-	public static String cannotDoFTagNotCorrectGroup;
 	public static String landClaimed;
-	public static String fTagNoArgs;
-	public static String fTagInUse;
 	
 	//Help Menu
 	public static List<String> topOfMenu;
@@ -84,11 +80,7 @@ public class ConfigHandler {
 	
 		ConfigHandler.prefix = plugin.tConfigString("prefix");
 		ConfigHandler.cannotClaimNoFaction = ConfigHandler.prefix + plugin.tConfigString("cannot-claim-no-faction");
-		ConfigHandler.cannotDoFtagNoFaction = ConfigHandler.prefix + plugin.tConfigString("cannot-do-ftag-no-faction");
-		ConfigHandler.cannotDoFTagNotCorrectGroup = ConfigHandler.prefix + plugin.tConfigString("cannot-do-ftag-not-correct-group");
 		ConfigHandler.landClaimed = ConfigHandler.prefix + plugin.tConfigString("land-claimed");
-		ConfigHandler.fTagNoArgs = ConfigHandler.prefix + plugin.tConfigString("ftag-no-args");
-		ConfigHandler.fTagInUse = ConfigHandler.prefix + plugin.tConfigString("ftag-in-use");
 		
 		/* Help Menu
 		 * 
@@ -133,7 +125,7 @@ public class ConfigHandler {
 			//save
 		}
 		
-		/*Load in factions, fwarps and fhomes          - Do optimizations to storage later
+		/*Load in factions
 		 *Populates the list in the main factions class
 		 *Creates a new object for each faction
 		 */
@@ -148,10 +140,8 @@ public class ConfigHandler {
 			int power = factionsConfig.getInt(name + ".power");
 			int land = factionsConfig.getInt(name + ".land");
 			boolean open = factionsConfig.getBoolean(name + ".open");
-			ArrayList<String> members = (ArrayList<String>) factionsConfig.getStringList(name + ".members");
-			String admin = factionsConfig.getString(name + ".admin");
-			ArrayList<String> mods = (ArrayList<String>) factionsConfig.getStringList(name + ".mods");
-			Faction fac = new Faction(name,tag,power,land,open,admin,mods, members);
+			List<String> members = factionsConfig.getStringList(name + ".members");
+			Faction fac = new Faction(name,tag,power,land,open,(ArrayList<String>) members);
 			String[] locSplit = factionsConfig.getString(name + ".fhome.location").split(",");
 			int x = Integer.parseInt(locSplit[0]);
 			int y = Integer.parseInt(locSplit[1]);
@@ -186,6 +176,8 @@ public class ConfigHandler {
 				
 				plugin.fWarps.add(new FWarp(fac,wLoc,warpName,group,password));
 			}
+			
+			
 		}
 		
 		/*Loads in entirety of the board
@@ -207,6 +199,8 @@ public class ConfigHandler {
 		{
 			plugin.fPlayers.add(new FPlayer(UUID.fromString(string),playerConfig.getInt(string + ".power"),playerConfig.getString(string + ".faction")));
 		}
+		
+		
 		
 	}
 

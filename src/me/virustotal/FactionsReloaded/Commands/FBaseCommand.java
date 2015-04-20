@@ -4,7 +4,6 @@ import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class FBaseCommand implements CommandExecutor {
 
@@ -13,21 +12,20 @@ public class FBaseCommand implements CommandExecutor {
 		
 		if(label.equalsIgnoreCase("f"))
 		{
-			Player player = (Player)sender;
 			if(args.length == 0)
 			{
-				return FHelp.doCommand(player);
+				return FHelp.doCommand();
 			}
 			else if(args.length == 1)
 			{
 				String arg = args[0];
 				if(NumberUtils.isNumber(arg))
 				{
-					return FHelp.doCommandWithArg(player,arg);
+					return FHelp.doCommandWithArg(arg);
 				}
 				else if(arg.equalsIgnoreCase("help"))
 				{
-					return FHelp.doCommand(player);
+					return FHelp.doCommand();
 				}
 				else if(arg.equalsIgnoreCase("claim"))
 				{
@@ -41,10 +39,6 @@ public class FBaseCommand implements CommandExecutor {
 				{
 					
 				}
-				else if(arg.equalsIgnoreCase("tag"))
-				{
-					FTag.doCommand(player);
-				}
 			}
 			else if(args.length == 2)
 			{
@@ -52,11 +46,7 @@ public class FBaseCommand implements CommandExecutor {
 				String arg2 = args[1];
 				if(arg1.equalsIgnoreCase("help") && NumberUtils.isNumber(arg2))
 				{
-					return FHelp.doCommandWithArg(player,arg2);
-				}
-				else if(arg1.equalsIgnoreCase("tag"))
-				{
-					FTag.doCommandWithArgs(player, arg2);
+					return FHelp.doCommandWithArg(arg2);
 				}
 			}
 		}

@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class FPlayerCacheListener {
 	
+	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e)
 	{
