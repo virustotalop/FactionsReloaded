@@ -3,7 +3,20 @@ max-faction-members: 0
 max-faction-power: 0
 max-faction-land: 0
 
-
+#Player power
 max-player-power: 10
 minimum-player-power: -10
 starting-player-power: 10
+
+#Messages
+prefix: "&6[Factions] "
+cannot-claim-no-faction: "Unfortunately you cannot claim here because you have no faction!"
+land-claimed: "You claimed some land!"
+
+#HelpMenu
+top-of-menu:
+- "====[Factions]===="
+help-menu:
+- "1. /f help"
+- "2. /f claim"
+command-per-page: 5

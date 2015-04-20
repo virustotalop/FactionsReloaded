@@ -15,26 +15,43 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public class ConfigHandler {
 	
+	//Faction values
 	public static int maxFactionMembers;
 	public static int maxFactionPower;
 	public static int maxFactionLand;
 	
+	//Player values
 	public static int maxPlayerPower;
 	public static int minimumPlayerPower;
 	public static int startingPlayerPower;
+	
+	
+	//Messages
+	public static String prefix;
+	public static String cannotClaimNoFaction;
+	public static String landClaimed;
+	
+	//Help Menu
+	public static List<String> topOfMenu;
+	public static List<String> helpMenu;
+	public static int commandsPerPage;
 	
 	public static void loadConfigs()
 	{
 		FactionsReloaded plugin = FactionsReloaded.get();
 		
 		/*Faction values
+		 * 
 		 */
+		
 		ConfigHandler.maxFactionMembers = plugin.getConfig().getInt("max-faction-members");
 		ConfigHandler.maxFactionPower = plugin.getConfig().getInt("max-faction-power");
 		ConfigHandler.maxFactionLand = plugin.getConfig().getInt("max-faction-land");
 		
 		/*If faction values are set to 0 increase them to Integer,MAX_VALUE
+		 * 
 		 */
+		
 		if(ConfigHandler.maxFactionMembers == 0)
 			ConfigHandler.maxFactionMembers = Integer.MAX_VALUE;
 		if(ConfigHandler.maxFactionPower == 0)
@@ -43,10 +60,32 @@ public class ConfigHandler {
 			ConfigHandler.maxFactionLand = Integer.MAX_VALUE;
 		
 		/*Player power values
+		 * 
 		 */
+		
 		ConfigHandler.maxPlayerPower = plugin.getConfig().getInt("max-player-power");
 		ConfigHandler.minimumPlayerPower = plugin.getConfig().getInt("minimum-player-power");
 		ConfigHandler.startingPlayerPower = plugin.getConfig().getInt("starting-player-power");
+		
+		/*Messages
+		 * 
+		 */
+	
+		ConfigHandler.prefix = plugin.tConfigString("prefix");
+		ConfigHandler.cannotClaimNoFaction = ConfigHandler.prefix + plugin.tConfigString("cannot-claim-no-faction");
+		ConfigHandler.landClaimed = ConfigHandler.prefix + plugin.tConfigString("land-claimed");
+		
+		/* Help Menu
+		 * 
+		 */
+		
+		ConfigHandler.topOfMenu = plugin.tConfigStringList("top-of-menu");
+		ConfigHandler.helpMenu = plugin.tConfigStringList("help-menu");
+		ConfigHandler.commandsPerPage = plugin.getConfig().getInt("commands-per-page");
+		
+		/*Config files
+		 * 
+		 */
 		
 		File boardFile = new File(plugin.getDataFolder().getPath(),"board.yml");
 		File configFile = new File(plugin.getDataFolder().getPath(),"config.yml");
@@ -68,7 +107,7 @@ public class ConfigHandler {
 		}
 		else
 		{
-			//save
+			plugin.reloadConfig();
 		}
 		if(!factionsFile.exists())
 		{
@@ -93,8 +132,9 @@ public class ConfigHandler {
 			String tag = ChatColor.translateAlternateColorCodes('&',factionsConfig.getString(name + ".tag"));
 			int power = factionsConfig.getInt(name + ".power");
 			int land = factionsConfig.getInt(name + ".land");
+			boolean open = factionsConfig.getBoolean(name + ".open");
 			List<String> members = factionsConfig.getStringList(name + ".members");
-			Faction fac = new Faction(name,tag,power,land,(ArrayList<String>) members);
+			Faction fac = new Faction(name,tag,power,land,open,(ArrayList<String>) members);
 			plugin.factions.add(fac);
 		}
 		

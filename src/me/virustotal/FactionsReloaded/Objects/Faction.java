@@ -8,14 +8,16 @@ public class Faction {
 	private String tag;
 	private int power;
 	private int land;
+	private boolean open;
 	private ArrayList<String> members;
 
-	public Faction(String name, String tag, int power, int land, ArrayList<String> members)
+	public Faction(String name, String tag, int power, int land,boolean open, ArrayList<String> members)
 	{
 		this.name = name;
 		this.tag = tag;
 		this.power = power;
 		this.land = land;
+		this.open = open;
 		this.members = members;
 	}
 
@@ -37,6 +39,11 @@ public class Faction {
 	public int getLand()
 	{
 	    return this.land;
+	}
+	
+	public boolean getOpen()
+	{
+		return this.open;
 	}
 	
 	public ArrayList<String> getMembers()

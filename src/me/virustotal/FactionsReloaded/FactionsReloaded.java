@@ -2,11 +2,13 @@ package me.virustotal.FactionsReloaded;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import me.virustotal.FactionsReloaded.Objects.Board;
 import me.virustotal.FactionsReloaded.Objects.FPlayer;
 import me.virustotal.FactionsReloaded.Objects.Faction;
 
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class FactionsReloaded extends JavaPlugin {
@@ -26,10 +28,30 @@ public class FactionsReloaded extends JavaPlugin {
 	
 	public void onDisable() {
 		
+		//onDisable do cleanup
+		factions.clear();
+		fPlayers.clear();
+		boards.clear();
+		fPlayerCache.clear();
+		
 	}
 	
 	public static FactionsReloaded get() {
 		return plugin;
+	}
+	
+	public String tConfigString(String val)
+	{
+		return ChatColor.translateAlternateColorCodes('&', this.getConfig().getString(val));
+	}
+	public List<String> tConfigStringList(String val)
+	{
+		List<String> list = this.getConfig().getStringList(val);
+		for(int i = 0; i < list.size(); i++)
+		{
+			list.set(i, ChatColor.translateAlternateColorCodes('&', list.get(i)));
+		}
+		return list;
 	}
 
 }

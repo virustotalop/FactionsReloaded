@@ -2,5 +2,9 @@ name:
   tag:
   power: 0
   land: 0
+  open: false
+  fadmin: "test"
+  fmods:
+  - "test"
   members:
   - "test"
