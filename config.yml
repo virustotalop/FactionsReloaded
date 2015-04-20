@@ -2,16 +2,22 @@
 max-faction-members: 0
 max-faction-power: 0
 max-faction-land: 0
+#This will not be unlimited
+starting-faction-warps: 0
+#This value can be unlimited
+max-faction-warps: 0
 
-#Player power
+#Player values
 max-player-power: 10
 minimum-player-power: -10
 starting-player-power: 10
 
 #Messages
-prefix: "&6[Factions] "
+prefix: "&0[&cFactions&0] &6"
 cannot-claim-no-faction: "Unfortunately you cannot claim here because you have no faction!"
-land-claimed: "You claimed some land!"
+land-claimed: "&6You claimed some land!"
+ftag-no-args: "&6You need to do /f tag <name>"
+ftag-in-use: "&6This ftag is in use!"
 
 #HelpMenu
 top-of-menu:
@@ -19,4 +25,4 @@ top-of-menu:
 help-menu:
 - "1. /f help"
 - "2. /f claim"
-command-per-page: 5
+commands-per-page: 5
