@@ -55,8 +55,10 @@ public class FactionUtil {
 	
 	public static boolean canBuild(FPlayer fPlayer,int x,int z)
 	{
-		String world = Bukkit.getPlayer(fPlayer.getUUID()).getLocation().getWorld().getName();
-		return BoardUtil.getFaction(world, x, z).equals(fPlayer.getFaction()) || BoardUtil.getFaction(world, x, z).equals("none");
+		String world = Bukkit.getPlayer(fPlayer.getUUID()).getLocation().getWorld().getName(); //or if player has bypass
+		FactionsReloaded plugin = FactionsReloaded.get();
+		String pName = Bukkit.getPlayer(fPlayer.getUUID()).getName();
+		return BoardUtil.getFaction(world, x, z).equals(fPlayer.getFaction()) || BoardUtil.getFaction(world, x, z).equals("none") || plugin.bypassedPlayers.contains(pName);
 	}
 	
 	

@@ -59,6 +59,10 @@ public class ConfigHandler {
 	public static List<String> helpMenu;
 	public static int commandsPerPage;
 	
+	//Block list
+	public static boolean blockAny;
+	public static List<String> blockedContainers;
+	
 	public static void loadConfigs()
 	{
 		FactionsReloaded plugin = FactionsReloaded.get();
@@ -123,6 +127,12 @@ public class ConfigHandler {
 		ConfigHandler.topOfMenu = plugin.tConfigStringList("top-of-menu");
 		ConfigHandler.helpMenu = plugin.tConfigStringList("help-menu");
 		ConfigHandler.commandsPerPage = plugin.getConfig().getInt("commands-per-page");
+		
+		/*Blocked containers
+		 * 
+		 */
+		ConfigHandler.blockAny = plugin.getConfig().getBoolean("blockAny");
+		ConfigHandler.blockedContainers = plugin.getConfig().getStringList("blocked-containers");
 		
 		/*Config files
 		 * 

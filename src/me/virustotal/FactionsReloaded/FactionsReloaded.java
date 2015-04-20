@@ -27,6 +27,8 @@ public class FactionsReloaded extends JavaPlugin {
 	public ArrayList<FHome> fHomes = new ArrayList<FHome>();
 	public ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
 	
+	public ArrayList<String> bypassedPlayers = new ArrayList<String>();
+	
 	public HashMap<String,FPlayer> fPlayerCache = new HashMap<String,FPlayer>();
 	
 	public void onEnable() {
@@ -36,6 +38,7 @@ public class FactionsReloaded extends JavaPlugin {
 		PluginManager pm = Bukkit.getPluginManager();
 		pm.registerEvents(new DeathPowerListener(),this);
 		pm.registerEvents(new FPlayerCacheListener(), this);
+		this.updateFactionPower();
 	}
 	
 	public void onDisable() {
@@ -46,6 +49,7 @@ public class FactionsReloaded extends JavaPlugin {
 		fPlayerCache.clear();
 		fHomes.clear();
 		fWarps.clear();
+		bypassedPlayers.clear();
 		
 	}
 	
@@ -67,7 +71,7 @@ public class FactionsReloaded extends JavaPlugin {
 		}
 		return list;
 	}
-	
+
 	public void updateFactionPower()
 	{
 		Bukkit.getScheduler().scheduleSyncDelayedTask(this, new Runnable()
@@ -75,7 +79,7 @@ public class FactionsReloaded extends JavaPlugin {
 			@Override
 			public void run()
 			{
-				
+
 			}
 		},ConfigHandler.updatePlayerPowerTicks);
 	}
