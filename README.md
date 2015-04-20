@@ -3,8 +3,14 @@ A new version of factions that is built from scratch and will focus on customiza
 Being built for ClubObsidian based on my prior experience of factions and where inequalities are in the original plugin.
 The plugin will be released on spigot when it is in an usable state.
 
-# Commands
+# Planned Features
+- Potion effects in fHomes
+- Faction warps
+- Password protected faction warps
+- Faction rank specific faction warps
+- All messages, etc will be configurable.
 
+# Commands
 - /f <#> - Base help command.
 - /f help <#> - Base help command.
 - /f join <faction> - Faction join command.
