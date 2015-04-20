@@ -8,7 +8,7 @@ The plugin will be released on spigot when it is in an usable state.
 - Faction warps
 - Password protected faction warps
 - Faction rank specific faction warps
-- All messages, etc will be configurable.
+- All messages, etc will be configurable
 
 # Commands
 - /f <#> - Base help command.
@@ -17,11 +17,13 @@ The plugin will be released on spigot when it is in an usable state.
 - /f leave - Faction leave command.
 - /f claim <#> - Faction claim land command.
 - /f declaim - Faction unclaim land command.
-- /f setwarp <name> - Faction warp set command.
-- /f warp <name> - Faction warp command.
+- /f setwarp <name> <password> - Faction warp set command.
+- /f warp <name> <password> - Faction warp command.
 - /f admin <name> - Faction admin command.
 - /f mod <name> - Faction mod command.
 - /f demod <name> - Faction demod command.
 - /f disband <name> - Faction disband command.
 - /f sethome - Faction sethome command.
 - /f home - Faction home command.
+- /f invite <name> - Faction player invite command.
+- /f devinvite <name> - Faction player deinvite command.
