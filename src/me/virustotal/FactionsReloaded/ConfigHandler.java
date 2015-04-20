@@ -7,11 +7,18 @@ import java.util.Set;
 import java.util.UUID;
 
 import me.virustotal.FactionsReloaded.Objects.Board;
+import me.virustotal.FactionsReloaded.Objects.FHome;
 import me.virustotal.FactionsReloaded.Objects.FPlayer;
+import me.virustotal.FactionsReloaded.Objects.FWarp;
 import me.virustotal.FactionsReloaded.Objects.Faction;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class ConfigHandler {
 	
@@ -135,7 +142,42 @@ public class ConfigHandler {
 			boolean open = factionsConfig.getBoolean(name + ".open");
 			List<String> members = factionsConfig.getStringList(name + ".members");
 			Faction fac = new Faction(name,tag,power,land,open,(ArrayList<String>) members);
+			String[] locSplit = factionsConfig.getString(name + ".fhome.location").split(",");
+			int x = Integer.parseInt(locSplit[0]);
+			int y = Integer.parseInt(locSplit[1]);
+			int z = Integer.parseInt(locSplit[2]);
+			String world = locSplit[3];
+			Location loc = new Location(Bukkit.getWorld(world),y,z,x);
 			plugin.factions.add(fac);
+			List<PotionEffect> potionEffects = new ArrayList<PotionEffect>();
+			for(String pEff : factionsConfig.getStringList(name + ".fhome.potion-effects"))
+			{
+				String[] pSplit = pEff.split(",");
+				potionEffects.add(new PotionEffect(PotionEffectType.getByName(pSplit[0]),1,Integer.parseInt(pSplit[1])));
+			}
+			
+			
+			//Add faction fHome to
+			plugin.fHomes.add(new FHome(fac,loc,potionEffects));
+			
+			
+			for(String fWarp : factionsConfig.getStringList(name + ".fwarps"))
+			{
+				String[] fSplit = fWarp.split(",");
+				int fx = Integer.parseInt(fSplit[0]);
+				int fy = Integer.parseInt(fSplit[1]);
+				int fz = Integer.parseInt(fSplit[2]);
+				World fWorld = Bukkit.getWorld(fSplit[3]);
+				String warpName = fSplit[4];
+				String group = fSplit[5];
+				String password = fSplit[6];
+				
+				Location wLoc = new Location(fWorld,fx,fy,fz);
+				
+				plugin.fWarps.add(new FWarp(fac,wLoc,warpName,group,password));
+			}
+			
+			
 		}
 		
 		/*Loads in entirety of the board
@@ -157,6 +199,8 @@ public class ConfigHandler {
 		{
 			plugin.fPlayers.add(new FPlayer(UUID.fromString(string),playerConfig.getInt(string + ".power"),playerConfig.getString(string + ".faction")));
 		}
+		
+		
 		
 	}
 

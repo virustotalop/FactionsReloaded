@@ -6,5 +6,14 @@ name:
   fadmin: "test"
   fmods:
   - "test"
+  #Not yet implemented
+  fhome:
+    location: "x,y,z,world"
+    potion-effects:
+    - "jumpeffect,1"
+  fwarps:
+  - "x,y,z,world,test,all,none"
+  - "x,y,z,world,test,mod,password"
+  - "x,y,z,world,test,admin,password"
   members:
   - "test"

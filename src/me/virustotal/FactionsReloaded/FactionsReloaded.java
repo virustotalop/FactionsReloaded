@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import me.virustotal.FactionsReloaded.Objects.Board;
+import me.virustotal.FactionsReloaded.Objects.FHome;
 import me.virustotal.FactionsReloaded.Objects.FPlayer;
+import me.virustotal.FactionsReloaded.Objects.FWarp;
 import me.virustotal.FactionsReloaded.Objects.Faction;
 
 import org.bukkit.ChatColor;
@@ -18,6 +20,9 @@ public class FactionsReloaded extends JavaPlugin {
 	public ArrayList<Faction> factions = new ArrayList<Faction>();
 	public ArrayList<FPlayer> fPlayers = new ArrayList<FPlayer>();
 	public ArrayList<Board> boards = new ArrayList<Board>();
+	public ArrayList<FHome> fHomes = new ArrayList<FHome>();
+	public ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
+	
 	
 	public HashMap<String,FPlayer> fPlayerCache = new HashMap<String,FPlayer>();
 	
@@ -33,6 +38,8 @@ public class FactionsReloaded extends JavaPlugin {
 		fPlayers.clear();
 		boards.clear();
 		fPlayerCache.clear();
+		fHomes.clear();
+		fWarps.clear();
 		
 	}
 	
