@@ -9,15 +9,19 @@ public class Faction {
 	private int power;
 	private int land;
 	private boolean open;
+	private String admin;
+	private ArrayList<String> mods;
 	private ArrayList<String> members;
 
-	public Faction(String name, String tag, int power, int land,boolean open, ArrayList<String> members)
+	public Faction(String name, String tag, int power, int land,boolean open, String admin, ArrayList<String> mods, ArrayList<String> members)
 	{
 		this.name = name;
 		this.tag = tag;
 		this.power = power;
 		this.land = land;
 		this.open = open;
+		this.admin = admin;
+		this.mods = mods;
 		this.members = members;
 	}
 
@@ -46,9 +50,29 @@ public class Faction {
 		return this.open;
 	}
 	
+	public String getAdmin()
+	{
+		return this.admin;
+	}
+	
+	public ArrayList<String> getMods()
+	{
+		return this.mods;
+	}
+	
 	public ArrayList<String> getMembers()
 	{
 		return this.members;
+	}
+	
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	
+	public void setTag(String tag)
+	{
+		this.tag = tag;
 	}
 	
 }

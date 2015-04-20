@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
+import org.bukkit.entity.Player;
 
 import me.virustotal.FactionsReloaded.FactionsReloaded;
 import me.virustotal.FactionsReloaded.Objects.FPlayer;
@@ -58,4 +59,22 @@ public class FactionUtil {
 		return BoardUtil.getFaction(world, x, z).equals(fPlayer.getFaction()) || BoardUtil.getFaction(world, x, z).equals("none");
 	}
 	
+	
+	
+	public static void saveFactionToFile(Faction fac)
+	{
+		
+	}
+	
+	public static String getGroup(FPlayer fPlayer)
+	{
+		Faction fac = FactionUtil.getFactionByName(fPlayer.getFaction());
+		Player player = Bukkit.getPlayer(fPlayer.getUUID());
+		if(fac.getAdmin().equals(player.getName()))
+			return "admin";
+		if(fac.getMods().contains(player.getName()))
+			return "mod";
+		
+		return "none";
+	}
 }

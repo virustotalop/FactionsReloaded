@@ -23,7 +23,6 @@ public class FactionsReloaded extends JavaPlugin {
 	public ArrayList<FHome> fHomes = new ArrayList<FHome>();
 	public ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
 	
-	
 	public HashMap<String,FPlayer> fPlayerCache = new HashMap<String,FPlayer>();
 	
 	public void onEnable() {
@@ -32,7 +31,6 @@ public class FactionsReloaded extends JavaPlugin {
 	}
 	
 	public void onDisable() {
-		
 		//onDisable do cleanup
 		factions.clear();
 		fPlayers.clear();
