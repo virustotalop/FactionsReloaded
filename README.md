@@ -5,18 +5,11 @@ Being built for ClubObsidian based on my prior experience of factions and where 
 # Commands
 
 - /f <#> - Base help command.
-
 - /f help <#> - Base help command.
-
 - /f join <faction> - Faction join command.
-
 - /f leave - Faction leave command.
-
 - /f claim - Faction claim land command.
-
 - /f declaim - Faction unclaim land command.
-
 - /f setwarp <name> - Faction warp set command.
-
 - /f warp <name> - Faction warp command.
 
