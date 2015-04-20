@@ -66,6 +66,11 @@ public class FactionUtil {
 		
 	}
 	
+	public static boolean hasInvite(Faction fac, FPlayer fPlayer)
+	{
+		return true;
+	}
+	
 	public static String getGroup(FPlayer fPlayer)
 	{
 		Faction fac = FactionUtil.getFactionByName(fPlayer.getFaction());

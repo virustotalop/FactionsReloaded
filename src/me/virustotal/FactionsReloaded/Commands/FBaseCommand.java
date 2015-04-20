@@ -33,6 +33,10 @@ public class FBaseCommand implements CommandExecutor {
 				{
 					
 				}
+				else if(arg.equalsIgnoreCase("join"))
+				{
+					FJoin.doCommand(player);
+				}
 				else if(arg.equalsIgnoreCase("invite"))
 				{
 					

@@ -52,6 +52,12 @@ public class FTag {
 		String tag = ChatColor.translateAlternateColorCodes('&', arg);
 		String name = ChatColor.stripColor(tag);
 		
+		if(name.length() > ConfigHandler.maxFactionTagSize)
+		{
+			player.sendMessage(ConfigHandler.fTagTooLong.replace("{length}","" + ConfigHandler.maxFactionTagSize));
+			return true;
+		}
+		
 		pFac.setTag(tag);
 		pFac.setName(name);
 		

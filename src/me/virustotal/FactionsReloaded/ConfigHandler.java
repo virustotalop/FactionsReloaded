@@ -26,6 +26,9 @@ public class ConfigHandler {
 	public static int maxFactionMembers;
 	public static int maxFactionPower;
 	public static int maxFactionLand;
+	public static int maxFactionWarps;
+	public static int startingFactionWarps;
+	public static int maxFactionTagSize;
 	
 	//Player values
 	public static int maxPlayerPower;
@@ -41,6 +44,11 @@ public class ConfigHandler {
 	public static String landClaimed;
 	public static String fTagNoArgs;
 	public static String fTagInUse;
+	public static String fTagTooLong;
+	public static String fJoinNoArgs;
+	public static String fJoinSuccess;
+	public static String fJoinNotSuccesfulClosed;
+	public static String fJoinFactionDoesNotExist;
 	
 	//Help Menu
 	public static List<String> topOfMenu;
@@ -58,6 +66,9 @@ public class ConfigHandler {
 		ConfigHandler.maxFactionMembers = plugin.getConfig().getInt("max-faction-members");
 		ConfigHandler.maxFactionPower = plugin.getConfig().getInt("max-faction-power");
 		ConfigHandler.maxFactionLand = plugin.getConfig().getInt("max-faction-land");
+		ConfigHandler.maxFactionWarps = plugin.getConfig().getInt("max-faction-warps");
+		ConfigHandler.startingFactionWarps = plugin.getConfig().getInt("starting-faction-warps");
+		ConfigHandler.maxFactionTagSize = plugin.getConfig().getInt("max-faction-tag-size");
 		
 		/*If faction values are set to 0 increase them to Integer,MAX_VALUE
 		 * 
@@ -89,6 +100,11 @@ public class ConfigHandler {
 		ConfigHandler.landClaimed = ConfigHandler.prefix + plugin.tConfigString("land-claimed");
 		ConfigHandler.fTagNoArgs = ConfigHandler.prefix + plugin.tConfigString("ftag-no-args");
 		ConfigHandler.fTagInUse = ConfigHandler.prefix + plugin.tConfigString("ftag-in-use");
+		ConfigHandler.fTagTooLong = ConfigHandler.prefix + plugin.tConfigString("ftag-too-long");
+		ConfigHandler.fJoinNoArgs = ConfigHandler.prefix + plugin.tConfigString("fjoin-no-args");
+		ConfigHandler.fJoinSuccess = ConfigHandler.prefix + plugin.tConfigString("fjoin-success");
+		ConfigHandler.fJoinNotSuccesfulClosed = ConfigHandler.prefix + plugin.tConfigString("fjoin-not-successful-closed");
+		ConfigHandler.cannotClaimNoFaction = ConfigHandler.prefix + plugin.tConfigString("fjoin-faction-does-not-exist");
 		
 		/* Help Menu
 		 * 

@@ -16,8 +16,7 @@ public class FPlayerCacheListener {
 	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e)
-	{
-		
+	{	
 		Player player = e.getPlayer();
 		String pName = player.getName();
 		FactionsReloaded plugin = FactionsReloaded.get();
