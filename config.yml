@@ -1,0 +1,9 @@
+#0 for no limit
+max-faction-members: 0
+max-faction-power: 0
+max-faction-land: 0
+
+
+max-player-power: 10
+minimum-player-power: -10
+starting-player-power: 10
