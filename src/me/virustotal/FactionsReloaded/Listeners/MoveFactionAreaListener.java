@@ -1,7 +1,7 @@
-package me.virustotal.FactionsReloaded.Listeners;
+package me.virustotal.factionsreloaded.listeners;
 
-import me.virustotal.FactionsReloaded.ConfigHandler;
-import me.virustotal.FactionsReloaded.Utils.BoardUtil;
+import me.virustotal.factionsreloaded.ConfigHandler;
+import me.virustotal.factionsreloaded.utils.BoardUtil;
 
 import org.bukkit.Chunk;
 import org.bukkit.event.EventHandler;

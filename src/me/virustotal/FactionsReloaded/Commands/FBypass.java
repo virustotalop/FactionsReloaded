@@ -1,7 +1,7 @@
-package me.virustotal.FactionsReloaded.Commands;
+package me.virustotal.factionsreloaded.commands;
 
-import me.virustotal.FactionsReloaded.ConfigHandler;
-import me.virustotal.FactionsReloaded.FactionsReloaded;
+import me.virustotal.factionsreloaded.ConfigHandler;
+import me.virustotal.factionsreloaded.FactionsReloaded;
 
 import org.bukkit.entity.Player;
 

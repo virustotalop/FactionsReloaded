@@ -1,7 +1,7 @@
-package me.virustotal.FactionsReloaded.Utils;
+package me.virustotal.factionsreloaded.utils;
 
-import me.virustotal.FactionsReloaded.FactionsReloaded;
-import me.virustotal.FactionsReloaded.Objects.Board;
+import me.virustotal.factionsreloaded.FactionsReloaded;
+import me.virustotal.factionsreloaded.objects.Board;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package me.virustotal.FactionsReloaded.Utils;
+package me.virustotal.factionsreloaded.utils;
 
 import java.util.ArrayList;
 
@@ -6,9 +6,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.entity.Player;
 
-import me.virustotal.FactionsReloaded.FactionsReloaded;
-import me.virustotal.FactionsReloaded.Objects.FPlayer;
-import me.virustotal.FactionsReloaded.Objects.Faction;
+import me.virustotal.factionsreloaded.FactionsReloaded;
+import me.virustotal.factionsreloaded.objects.FPlayer;
+import me.virustotal.factionsreloaded.objects.Faction;
 
 public class FactionUtil {
 

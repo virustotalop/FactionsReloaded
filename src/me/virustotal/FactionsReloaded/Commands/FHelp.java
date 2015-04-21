@@ -1,8 +1,8 @@
-package me.virustotal.FactionsReloaded.Commands;
+package me.virustotal.factionsreloaded.commands;
 
 import java.util.List;
 
-import me.virustotal.FactionsReloaded.ConfigHandler;
+import me.virustotal.factionsreloaded.ConfigHandler;
 
 import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.entity.Player;

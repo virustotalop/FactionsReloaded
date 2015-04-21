@@ -1,9 +1,9 @@
-package me.virustotal.FactionsReloaded.Commands;
+package me.virustotal.factionsreloaded.commands;
 
 import org.bukkit.entity.Player;
 
-import me.virustotal.FactionsReloaded.Objects.FPlayer;
-import me.virustotal.FactionsReloaded.Utils.FPlayerUtil;
+import me.virustotal.factionsreloaded.objects.FPlayer;
+import me.virustotal.factionsreloaded.utils.FPlayerUtil;
 
 public class FOpen {
 	

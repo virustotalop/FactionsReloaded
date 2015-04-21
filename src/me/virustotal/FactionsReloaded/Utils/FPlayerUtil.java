@@ -1,9 +1,9 @@
-package me.virustotal.FactionsReloaded.Utils;
+package me.virustotal.factionsreloaded.utils;
 
 import org.bukkit.entity.Player;
 
-import me.virustotal.FactionsReloaded.FactionsReloaded;
-import me.virustotal.FactionsReloaded.Objects.FPlayer;
+import me.virustotal.factionsreloaded.FactionsReloaded;
+import me.virustotal.factionsreloaded.objects.FPlayer;
 
 public class FPlayerUtil {
 	

@@ -1,4 +1,4 @@
-package me.virustotal.FactionsReloaded.Listeners;
+package me.virustotal.factionsreloaded.listeners;
 
 public class ExplosionListener {
 	

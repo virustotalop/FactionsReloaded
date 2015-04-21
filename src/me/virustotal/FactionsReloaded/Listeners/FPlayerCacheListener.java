@@ -1,10 +1,10 @@
-package me.virustotal.FactionsReloaded.Listeners;
+package me.virustotal.factionsreloaded.listeners;
 
 import java.util.ArrayList;
 
-import me.virustotal.FactionsReloaded.ConfigHandler;
-import me.virustotal.FactionsReloaded.FactionsReloaded;
-import me.virustotal.FactionsReloaded.Objects.FPlayer;
+import me.virustotal.factionsreloaded.ConfigHandler;
+import me.virustotal.factionsreloaded.FactionsReloaded;
+import me.virustotal.factionsreloaded.objects.FPlayer;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

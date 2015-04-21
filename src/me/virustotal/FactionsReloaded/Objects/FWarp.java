@@ -1,4 +1,4 @@
-package me.virustotal.FactionsReloaded.Objects;
+package me.virustotal.factionsreloaded.objects;
 
 import org.bukkit.Location;
 

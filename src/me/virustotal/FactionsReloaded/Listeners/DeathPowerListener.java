@@ -1,8 +1,8 @@
-package me.virustotal.FactionsReloaded.Listeners;
+package me.virustotal.factionsreloaded.listeners;
 
-import me.virustotal.FactionsReloaded.ConfigHandler;
-import me.virustotal.FactionsReloaded.Objects.FPlayer;
-import me.virustotal.FactionsReloaded.Utils.FPlayerUtil;
+import me.virustotal.factionsreloaded.ConfigHandler;
+import me.virustotal.factionsreloaded.objects.FPlayer;
+import me.virustotal.factionsreloaded.utils.FPlayerUtil;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

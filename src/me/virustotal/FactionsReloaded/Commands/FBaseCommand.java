@@ -1,4 +1,4 @@
-package me.virustotal.FactionsReloaded.Commands;
+package me.virustotal.factionsreloaded.commands;
 
 import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.command.Command;

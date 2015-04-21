@@ -1,16 +1,16 @@
-package me.virustotal.FactionsReloaded;
+package me.virustotal.factionsreloaded;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import me.virustotal.FactionsReloaded.Listeners.DeathPowerListener;
-import me.virustotal.FactionsReloaded.Listeners.FPlayerCacheListener;
-import me.virustotal.FactionsReloaded.Objects.Board;
-import me.virustotal.FactionsReloaded.Objects.FHome;
-import me.virustotal.FactionsReloaded.Objects.FPlayer;
-import me.virustotal.FactionsReloaded.Objects.FWarp;
-import me.virustotal.FactionsReloaded.Objects.Faction;
+import me.virustotal.factionsreloaded.listeners.DeathPowerListener;
+import me.virustotal.factionsreloaded.listeners.FPlayerCacheListener;
+import me.virustotal.factionsreloaded.objects.Board;
+import me.virustotal.factionsreloaded.objects.FHome;
+import me.virustotal.factionsreloaded.objects.FPlayer;
+import me.virustotal.factionsreloaded.objects.FWarp;
+import me.virustotal.factionsreloaded.objects.Faction;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

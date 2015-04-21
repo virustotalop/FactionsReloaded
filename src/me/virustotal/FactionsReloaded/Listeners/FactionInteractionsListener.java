@@ -1,9 +1,9 @@
-package me.virustotal.FactionsReloaded.Listeners;
+package me.virustotal.factionsreloaded.listeners;
 
-import me.virustotal.FactionsReloaded.ConfigHandler;
-import me.virustotal.FactionsReloaded.Objects.FPlayer;
-import me.virustotal.FactionsReloaded.Utils.FPlayerUtil;
-import me.virustotal.FactionsReloaded.Utils.FactionUtil;
+import me.virustotal.factionsreloaded.ConfigHandler;
+import me.virustotal.factionsreloaded.objects.FPlayer;
+import me.virustotal.factionsreloaded.utils.FPlayerUtil;
+import me.virustotal.factionsreloaded.utils.FactionUtil;
 
 import org.bukkit.Chunk;
 import org.bukkit.entity.Player;
