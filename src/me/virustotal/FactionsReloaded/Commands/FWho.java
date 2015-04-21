@@ -14,6 +14,8 @@ public class FWho {
 	
 	public static boolean doCommandWithArgs(Player player, String arg)
 	{
+		//check to see if player exists
+		//if they do send info such as power, faction etc.
 		return true;
 	}
 

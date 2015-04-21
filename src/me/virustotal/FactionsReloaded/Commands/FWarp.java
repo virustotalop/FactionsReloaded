@@ -28,7 +28,7 @@ public class FWarp {
 			player.sendMessage(ConfigHandler.fWarpNoFaction);
 			return true;
 		}
-		
+		//do warp handling    warp name - password if one
 		return true;
 	}
 	

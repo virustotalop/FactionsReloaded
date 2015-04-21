@@ -27,7 +27,6 @@ public class FCreate {
 			player.sendMessage(ConfigHandler.fCreateAlreadyInFaction);
 			return true;
 		}
-		
 		if(stripped.equalsIgnoreCase("none")) //do not want the name "none" used as it is a default faction name
 		{
 			player.sendMessage(ConfigHandler.fCreateInvalidName);
@@ -41,7 +40,7 @@ public class FCreate {
 				return true;
 			}
 		}
-		
+		//else create faction
 		
 		return true;
 	}

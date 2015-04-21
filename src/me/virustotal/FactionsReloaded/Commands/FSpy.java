@@ -25,7 +25,7 @@ public class FSpy {
 			return true;
 				
 			}
-			//implementation to chat listener will need to be added later
+			//faction chat implementation to chat listener will need to be added later
 		}
 		else
 		{

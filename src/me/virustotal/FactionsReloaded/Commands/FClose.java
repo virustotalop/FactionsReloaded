@@ -17,7 +17,7 @@ public class FClose {
 			return true;
 		}
 		
-		//send message no args fclose
+		//send message closed, close faction
 		return true;
 	}
 
