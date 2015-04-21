@@ -1,3 +1,5 @@
+<img src="http://i.imgur.com/M1Ylpdd.png"></img>
+
 # FactionsReloaded
 A new version of factions that is built from scratch and will focus on customization.
 Being built for ClubObsidian based on my prior experience of factions and where inequalities are in the original plugin.
@@ -11,6 +13,7 @@ The plugin will be released on spigot when it is in an usable state.
 - All messages, etc will be configurable
 
 # Commands
+
 - /f <#> - Base help command.
 - /f help <#> - Base help command.
 - /f join <faction> - Faction join command.
@@ -23,7 +26,7 @@ The plugin will be released on spigot when it is in an usable state.
 - /f admin <pname> - Faction admin command.
 - /f mod <pname> - Faction mod command.
 - /f unmod <pname> - Faction demod command.
-- /f disband <faction name> - Faction disband command.
+- /f disband <fname> - Faction disband command.
 - /f sethome - Faction sethome command.
 - /f home - Faction home command.
 - /f invite <pname> - Faction player invite command.
