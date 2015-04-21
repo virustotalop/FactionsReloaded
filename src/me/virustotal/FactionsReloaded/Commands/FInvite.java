@@ -19,5 +19,17 @@ public class FInvite {
 		player.sendMessage(ConfigHandler.fInviteNoArgs);
 		return true;
 	}
+	
+	public static boolean doCommandWithArgs(Player player, String arg)
+	{
+		FPlayer fPlayer = FPlayerUtil.getFPlayer(player);
+		if(fPlayer.getFaction().equals("none"))
+		{
+			player.sendMessage(ConfigHandler.fInviteNoFaction);
+			return true;
+		}
+		//implementation for faction invites
+		return true;
+	}
 
 }
