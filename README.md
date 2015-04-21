@@ -16,14 +16,15 @@ The plugin will be released on spigot when it is in an usable state.
 - /f join <faction> - Faction join command.
 - /f leave - Faction leave command.
 - /f claim <#> - Faction claim land command.
-- /f declaim - Faction unclaim land command.
-- /f setwarp <name> <password> - Faction warp set command.
-- /f warp <name> <password> - Faction warp command.
-- /f admin <name> - Faction admin command.
-- /f mod <name> - Faction mod command.
-- /f demod <name> - Faction demod command.
-- /f disband <name> - Faction disband command.
+- /f declaim <all> - Faction unclaim land command.
+- /f setwarp <warp name> <password> - Faction warp set command.
+- /f warp <warp name> <password> - Faction warp command.
+- /f warps - Faction command to see all warps.
+- /f admin <pname> - Faction admin command.
+- /f mod <pname> - Faction mod command.
+- /f unmod <pname> - Faction demod command.
+- /f disband <faction name> - Faction disband command.
 - /f sethome - Faction sethome command.
 - /f home - Faction home command.
-- /f invite <name> - Faction player invite command.
-- /f devinvite <name> - Faction player deinvite command.
+- /f invite <pname> - Faction player invite command.
+- /f uninvite <pname/all> - Faction player deinvite command.
