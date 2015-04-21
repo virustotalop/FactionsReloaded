@@ -36,6 +36,10 @@ fcreate-already-in-faction: "&6You are already in a faction, leave or disband yo
 fbypass-off: "&6You have turned faction bypass off!"
 fbypass-on: "&6You have turned faction bypass on!"
 fbypass-no-permission: "&6You do not have access to faction bypass!"
+fadmin-no-args: "You need to do /f admin <player> to make someone the faction admin!"
+fadmin-no-faction: "You are not in a faction, so you cannot give faction admin to anyone!"
+fwilderness-enter: "&2Wilderness not the safest place to be"
+ffaction-enter: "&6This area is owned by {faction}!"
 
 #HelpMenu
 top-of-menu:

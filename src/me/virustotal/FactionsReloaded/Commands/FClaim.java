@@ -23,8 +23,10 @@ public class FClaim {
 		int x = chunk.getX();
 		int z = chunk.getZ();
 		String world = chunk.getWorld().getName();
+		
 		if(FactionUtil.canClaim(fac, world, x, z))
 		{
+			player.sendMessage(ConfigHandler.landClaimed);
 			FactionUtil.claim(fac, chunk);
 			return true;
 		}

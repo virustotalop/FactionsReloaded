@@ -45,6 +45,7 @@ public class FactionUtil {
 	{
 		if(FactionUtil.canClaim(claimingFaction,chunk.getWorld().getName(), chunk.getX(), chunk.getZ()))
 		{
+			
 			//do stuff with board
 		}
 		else

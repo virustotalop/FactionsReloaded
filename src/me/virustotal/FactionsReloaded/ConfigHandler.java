@@ -61,6 +61,8 @@ public class ConfigHandler {
 	public static String fBypassNoPermission;
 	public static String fAdminNoArgs;
 	public static String fAdminNoFaction;
+	public static String fWildernessEnter;
+	public static String fFactionEnter;
 	
 	//Help Menu
 	public static List<String> topOfMenu;
@@ -134,6 +136,8 @@ public class ConfigHandler {
 		ConfigHandler.fBypassNoPermission = ConfigHandler.prefix + plugin.tConfigString("fbypass-no-permission");
 		ConfigHandler.fAdminNoArgs = ConfigHandler.prefix + plugin.tConfigString("fadmin-no-args");
 		ConfigHandler.fAdminNoFaction = ConfigHandler.prefix + plugin.tConfigString("fadmin-no-faction");
+		ConfigHandler.fWildernessEnter = ConfigHandler.prefix + plugin.tConfigString("fwilderness-enter");
+		ConfigHandler.fFactionEnter = ConfigHandler.prefix + plugin.tConfigString("ffaction-enter");
 		
 		/* Help Menu
 		 * 
