@@ -1,6 +1,7 @@
 package me.virustotal.FactionsReloaded.Commands;
 
 import me.virustotal.FactionsReloaded.ConfigHandler;
+import me.virustotal.FactionsReloaded.FactionsReloaded;
 import me.virustotal.FactionsReloaded.Objects.FPlayer;
 import me.virustotal.FactionsReloaded.Objects.Faction;
 import me.virustotal.FactionsReloaded.Utils.FPlayerUtil;
@@ -20,6 +21,7 @@ public class FJoin {
 	{
 		Faction fac = FactionUtil.getFactionByName(arg);
 		FPlayer fPlayer = FPlayerUtil.getFPlayer(player);
+		FactionsReloaded plugin = FactionsReloaded.get();
 		
 		if(fac == null)
 		{
@@ -29,13 +31,27 @@ public class FJoin {
 		else if(fac.getOpen())
 		{
 			player.sendMessage(ConfigHandler.fJoinSuccess.replace("{faction}", fac.getName()));
-			//join faction
+			for(Faction f : plugin.factions)
+			{
+				if(f.equals(fac))
+				{
+					f.getMembers().add(fPlayer.getUUID().toString());
+					//save faction members to disk
+				}
+			}
 			return true;
 		}
 		else if(!fac.getOpen() && FactionUtil.hasInvite(fac, fPlayer))
 		{
 			player.sendMessage(ConfigHandler.fJoinSuccess.replace("{faction}", fac.getName()));
-			//join faction
+			for(Faction f : plugin.factions)
+			{
+				if(f.equals(fac))
+				{
+					f.getMembers().add(fPlayer.getUUID().toString());
+					//save faction members to disk
+				}
+			}
 			return true;
 		}
 		

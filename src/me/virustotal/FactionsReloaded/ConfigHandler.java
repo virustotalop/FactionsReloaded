@@ -53,6 +53,14 @@ public class ConfigHandler {
 	public static String fWarpNoArgs;
 	public static String fWarpNoFaction;
 	public static String fSetwarpNoArgs;
+	public static String fCreateNoArgs;
+	public static String fCreateInvalidName;
+	public static String fCreateAlreadyInFaction;
+	public static String fBypassOn;
+	public static String fBypassOff;
+	public static String fBypassNoPermission;
+	public static String fAdminNoArgs;
+	public static String fAdminNoFaction;
 	
 	//Help Menu
 	public static List<String> topOfMenu;
@@ -118,7 +126,14 @@ public class ConfigHandler {
 		ConfigHandler.fWarpNoArgs = ConfigHandler.prefix + plugin.tConfigString("fwarp-no-args");
 		ConfigHandler.fWarpNoFaction = ConfigHandler.prefix + plugin.tConfigString("fwarp-no-faction");
 		ConfigHandler.fSetwarpNoArgs = ConfigHandler.prefix + plugin.tConfigString("fsetwarp-no-args");
-		
+		ConfigHandler.fCreateNoArgs = ConfigHandler.prefix + plugin.tConfigString("fcreate-no-args");
+		ConfigHandler.fCreateInvalidName = ConfigHandler.prefix + plugin.tConfigString("fcreate-invalid-args");
+		ConfigHandler.fCreateAlreadyInFaction = ConfigHandler.prefix + plugin.tConfigString("fcreate-already-in-faction");
+		ConfigHandler.fBypassOff = ConfigHandler.prefix + plugin.tConfigString("fbypass-off");
+		ConfigHandler.fBypassOn = ConfigHandler.prefix + plugin.tConfigString("fbypass-on");
+		ConfigHandler.fBypassNoPermission = ConfigHandler.prefix + plugin.tConfigString("fbypass-no-permission");
+		ConfigHandler.fAdminNoArgs = ConfigHandler.prefix + plugin.tConfigString("fadmin-no-args");
+		ConfigHandler.fAdminNoFaction = ConfigHandler.prefix + plugin.tConfigString("fadmin-no-faction");
 		
 		/* Help Menu
 		 * 

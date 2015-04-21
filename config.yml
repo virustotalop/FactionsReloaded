@@ -11,7 +11,8 @@ max-faction-tag-size: 10
 max-player-power: 10
 minimum-player-power: -10
 starting-player-power: 10
-loss-of-player-power-pre-death: 2
+loss-of-player-power-per-death: 2
+update-player-power-ticks: 1200
 
 #Messages
 prefix: "&0[&cFactions&0] &6"
@@ -29,6 +30,12 @@ fjoin-faction-does-not-exist: "&6The faction {faction} does not exist!"
 fwarp-no-args: "&6Do /f warp <name> to warp to faction warp!"
 fwarp-no-faction: "&6You cannot warp to a faction warp you are not in a faction!"
 fsetwarp-no-args: "&6Do /f setwarp <name> to set a faction warp!"
+fcreate-no-args: "&6Do /f create <fname> to create a faction!"
+fcreate-invalid-name: "&6That is in invalid faction name try to use a different name!"
+fcreate-already-in-faction: "&6You are already in a faction, leave or disband your current faction to create a new one!"
+fbypass-off: "&6You have turned faction bypass off!"
+fbypass-on: "&6You have turned faction bypass on!"
+fbypass-no-permission: "&6You do not have access to faction bypass!"
 
 #HelpMenu
 top-of-menu:
@@ -37,3 +44,15 @@ help-menu:
 - "1. /f help"
 - "2. /f claim"
 commands-per-page: 5
+
+#No containers will be blocked by default
+block-any: false
+
+blocked-containers:
+- "TRAPPED_CHEST"
+- "FURNACE"
+- "CHEST"
+- "CRAFTING_TABLE"
+- "HOPPER"
+- "DISPENSER"
+- "DROPPER"
