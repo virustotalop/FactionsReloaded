@@ -1,5 +1,6 @@
 package me.virustotal.FactionsReloaded.Commands;
 
+import me.virustotal.FactionsReloaded.Objects.FPlayer;
 import me.virustotal.FactionsReloaded.Utils.FPlayerUtil;
 
 import org.bukkit.entity.Player;

@@ -39,7 +39,11 @@ public class FBaseCommand implements CommandExecutor {
 				}
 				else if(arg.equalsIgnoreCase("invite"))
 				{
-					
+					return FInvite.doCommand(player);
+				}
+				else if(arg.equalsIgnoreCase("deinvite"))
+				{
+					return FDeinvite.doCommand(player);
 				}
 				else if(arg.equalsIgnoreCase("close"))
 				{

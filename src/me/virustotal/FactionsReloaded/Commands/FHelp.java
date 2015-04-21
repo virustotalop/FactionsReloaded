@@ -13,7 +13,7 @@ public class FHelp {
 		List<String> list = ConfigHandler.helpMenu;
 		int size = list.size();
 		int perPage = ConfigHandler.commandsPerPage;
-	
+		
 		//iterate through list, make sure not to go past size
 		
 		return true;

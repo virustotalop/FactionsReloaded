@@ -29,6 +29,7 @@ public class FactionsReloaded extends JavaPlugin {
 	
 	public ArrayList<String> spyPlayers = new ArrayList<String>();
 	public ArrayList<String> bypassedPlayers = new ArrayList<String>();
+	public ArrayList<String> factionChat = new ArrayList<String>();
 	
 	public HashMap<String,FPlayer> fPlayerCache = new HashMap<String,FPlayer>();
 	

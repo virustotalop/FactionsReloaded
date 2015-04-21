@@ -10,7 +10,11 @@ public class FWho {
 	{
 		player.sendMessage(ConfigHandler.fWhoNoArgs);
 		return true;
-		
+	}
+	
+	public static boolean doCommandWithArgs(Player player, String arg)
+	{
+		return true;
 	}
 
 }

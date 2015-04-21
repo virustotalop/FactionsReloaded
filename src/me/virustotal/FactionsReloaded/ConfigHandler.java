@@ -46,6 +46,7 @@ public class ConfigHandler {
 	public static String fTagNoArgs;
 	public static String fTagInUse;
 	public static String fTagTooLong;
+	public static String fTagFormat;
 	public static String fJoinNoArgs;
 	public static String fJoinSuccess;
 	public static String fJoinNotSuccesfulClosed;
@@ -73,6 +74,10 @@ public class ConfigHandler {
 	public static String fSpyOn;
 	public static String fSpyOff;
 	public static String fSpyNoPermission;
+	public static String fChatOn;
+	public static String fChatOff;
+	public static String fChatNoFaction;	
+	public static String fChatFormat;
 	
 	//Help Menu
 	public static List<String> topOfMenu;
@@ -131,6 +136,7 @@ public class ConfigHandler {
 		ConfigHandler.fTagNoArgs = ConfigHandler.prefix + plugin.tConfigString("ftag-no-args");
 		ConfigHandler.fTagInUse = ConfigHandler.prefix + plugin.tConfigString("ftag-in-use");
 		ConfigHandler.fTagTooLong = ConfigHandler.prefix + plugin.tConfigString("ftag-too-long");
+		ConfigHandler.fTagFormat = plugin.tConfigString("ftag-format");
 		ConfigHandler.fJoinNoArgs = ConfigHandler.prefix + plugin.tConfigString("fjoin-no-args");
 		ConfigHandler.fJoinSuccess = ConfigHandler.prefix + plugin.tConfigString("fjoin-success");
 		ConfigHandler.fJoinNotSuccesfulClosed = ConfigHandler.prefix + plugin.tConfigString("fjoin-not-successful-closed");
@@ -158,6 +164,10 @@ public class ConfigHandler {
 		ConfigHandler.fSpyOn = ConfigHandler.prefix + plugin.tConfigString("fspy-on");
 		ConfigHandler.fSpyOff = ConfigHandler.prefix + plugin.tConfigString("fspy-off");
 		ConfigHandler.fSpyNoPermission = ConfigHandler.prefix + plugin.tConfigString("fspy-no-permission");
+		ConfigHandler.fChatOn = ConfigHandler.prefix + plugin.tConfigString("fchat-on");
+		ConfigHandler.fChatOff = ConfigHandler.prefix + plugin.tConfigString("fchat-off");
+		ConfigHandler.fChatNoFaction = ConfigHandler.prefix + plugin.tConfigString("fchat-no-faction");
+		ConfigHandler.fChatFormat = plugin.tConfigString("fchat-format");
 		
 		/* Help Menu
 		 * 

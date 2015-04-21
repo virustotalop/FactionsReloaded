@@ -6,6 +6,9 @@ max-faction-land: 0
 starting-faction-warps: 0
 max-faction-warps: 0
 max-faction-tag-size: 10
+allow-faction-warps: true
+allow-password-protected-faction-warps: true
+
 
 #Player values
 max-player-power: 10
@@ -30,6 +33,7 @@ fjoin-faction-does-not-exist: "&6The faction {faction} does not exist!"
 fwarp-no-args: "&6Do /f warp <name> to warp to faction warp!"
 fwarp-no-faction: "&6You cannot warp to a faction warp you are not in a faction!"
 fsetwarp-no-args: "&6Do /f setwarp <name> to set a faction warp!"
+fsetwarp-no-faction: "&6You cannot set a faction warp since you are not in a faction warp!"
 fcreate-no-args: "&6Do /f create <fname> to create a faction!"
 fcreate-invalid-name: "&6That is in invalid faction name try to use a different name!"
 fcreate-already-in-faction: "&6You are already in a faction, leave or disband your current faction to create a new one!"
@@ -43,8 +47,16 @@ ffaction-enter: "&6This area is owned by {faction}!"
 fwho-no-args: "&6Do /f who <username>"
 finvite-no-args: "&6Do /f invite to invite someone to a faction!"
 finvite-no-faction: "&6You are not in a faction you cannot invite anyone!"
+fdisband-no-faction: "&6You cannot disband your faction because you have none!"
 fdisband-your-faction: "&6Your faction has been disbanded!"
-fdisband-other-faction: "The faction {faction} has been disbanded!"
+fdisband-other-faction: "&6The faction {faction} has been disbanded!"
+fspy-on: "&6You have turned faction chat spy on!"
+fspy-off: "&6You have turned faction chat spy off!"
+fspy-no-permission: "&6You do not have permission for faction chat spy!"
+fchat-off: "&6You have turned faction chat off!"
+fchat-on: "&6You have turned faction chat on!"
+fchat-no-faction: "&6You cannot turn on factions chat since you are not in a faction!"
+fchat-format: "&6[FChat] {message}"
 
 #HelpMenu
 top-of-menu:
