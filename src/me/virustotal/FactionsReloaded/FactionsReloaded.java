@@ -27,6 +27,7 @@ public class FactionsReloaded extends JavaPlugin {
 	public ArrayList<FHome> fHomes = new ArrayList<FHome>();
 	public ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
 	
+	public ArrayList<String> spyPlayers = new ArrayList<String>();
 	public ArrayList<String> bypassedPlayers = new ArrayList<String>();
 	
 	public HashMap<String,FPlayer> fPlayerCache = new HashMap<String,FPlayer>();

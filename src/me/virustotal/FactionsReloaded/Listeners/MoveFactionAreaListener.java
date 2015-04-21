@@ -1,5 +1,6 @@
 package me.virustotal.FactionsReloaded.Listeners;
 
+import me.virustotal.FactionsReloaded.ConfigHandler;
 import me.virustotal.FactionsReloaded.Utils.BoardUtil;
 
 import org.bukkit.Chunk;
@@ -18,6 +19,15 @@ public class MoveFactionAreaListener implements Listener {
 			Chunk toChunk = e.getFrom().getChunk();
 			String from = BoardUtil.getFaction(fromChunk.getWorld().getName(), fromChunk.getX(), fromChunk.getZ());
 			String to = BoardUtil.getFaction(toChunk.getWorld().getName(),toChunk.getX(),toChunk.getZ());
+			
+			if(!from.equals("none") && to.equals("none"))
+			{
+				e.getPlayer().sendMessage(ConfigHandler.fWildernessEnter);
+			}
+			else if(from.equals("none") && !to.equals("none"))
+			{
+				e.getPlayer().sendMessage(ConfigHandler.fFactionEnter.replace("{faction}", to));
+			}
 		}
 	}
 

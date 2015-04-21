@@ -1,0 +1,15 @@
+name: FactionsReloaded
+main: me.virustotal.FactionsReloaded.FactionsReloaded
+version: 0.1
+website: https://github.com/virustotalop/FactionsReloaded
+author: VirusTotal
+commands:
+  f:
+    description: Factions Reloaded base help command!
+permissions:
+  factions.bypass:
+    description: Factions Reloaded bypass command!
+    default: false
+  factions.spy:
+    description: Faction chatspy command!
+    default: false

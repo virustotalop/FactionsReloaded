@@ -40,6 +40,11 @@ fadmin-no-args: "You need to do /f admin <player> to make someone the faction ad
 fadmin-no-faction: "You are not in a faction, so you cannot give faction admin to anyone!"
 fwilderness-enter: "&2Wilderness not the safest place to be"
 ffaction-enter: "&6This area is owned by {faction}!"
+fwho-no-args: "&6Do /f who <username>"
+finvite-no-args: "&6Do /f invite to invite someone to a faction!"
+finvite-no-faction: "&6You are not in a faction you cannot invite anyone!"
+fdisband-your-faction: "&6Your faction has been disbanded!"
+fdisband-other-faction: "The faction {faction} has been disbanded!"
 
 #HelpMenu
 top-of-menu:

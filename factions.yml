@@ -3,9 +3,9 @@ name:
   power: 0
   land: 0
   open: false
-  fadmin: "test,uuid"
+  fadmin: "test"
   fmods:
-  - "test,uuid"
+  - "test"
   #Not yet implemented
   fhome:
     location: "x,y,z,world"
@@ -16,4 +16,4 @@ name:
   - "x,y,z,world,test,mod,password"
   - "x,y,z,world,test,admin,password"
   members:
-  - "test,uuid"
+  - "test"

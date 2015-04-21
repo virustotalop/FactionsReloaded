@@ -30,7 +30,12 @@ public class FClaim {
 			FactionUtil.claim(fac, chunk);
 			return true;
 		}
-		return true;
+		else
+		{
+			//if unable to the reason why needs to be given
+			return true;
+		}
+		
 	}
 
 }

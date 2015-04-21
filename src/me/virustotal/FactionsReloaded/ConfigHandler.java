@@ -53,6 +53,7 @@ public class ConfigHandler {
 	public static String fWarpNoArgs;
 	public static String fWarpNoFaction;
 	public static String fSetwarpNoArgs;
+	public static String fSetWarpNoFaction;
 	public static String fCreateNoArgs;
 	public static String fCreateInvalidName;
 	public static String fCreateAlreadyInFaction;
@@ -63,6 +64,15 @@ public class ConfigHandler {
 	public static String fAdminNoFaction;
 	public static String fWildernessEnter;
 	public static String fFactionEnter;
+	public static String fWhoNoArgs;
+	public static String fInviteNoArgs;
+	public static String fInviteNoFaction;
+	public static String fDisbandYourFaction;
+	public static String fDisbandOtherFaction;
+	public static String fDisbandNoFaction;
+	public static String fSpyOn;
+	public static String fSpyOff;
+	public static String fSpyNoPermission;
 	
 	//Help Menu
 	public static List<String> topOfMenu;
@@ -128,6 +138,7 @@ public class ConfigHandler {
 		ConfigHandler.fWarpNoArgs = ConfigHandler.prefix + plugin.tConfigString("fwarp-no-args");
 		ConfigHandler.fWarpNoFaction = ConfigHandler.prefix + plugin.tConfigString("fwarp-no-faction");
 		ConfigHandler.fSetwarpNoArgs = ConfigHandler.prefix + plugin.tConfigString("fsetwarp-no-args");
+		ConfigHandler.fSetWarpNoFaction = ConfigHandler.prefix + plugin.tConfigString("fsetwarp-no-faction");
 		ConfigHandler.fCreateNoArgs = ConfigHandler.prefix + plugin.tConfigString("fcreate-no-args");
 		ConfigHandler.fCreateInvalidName = ConfigHandler.prefix + plugin.tConfigString("fcreate-invalid-args");
 		ConfigHandler.fCreateAlreadyInFaction = ConfigHandler.prefix + plugin.tConfigString("fcreate-already-in-faction");
@@ -138,6 +149,15 @@ public class ConfigHandler {
 		ConfigHandler.fAdminNoFaction = ConfigHandler.prefix + plugin.tConfigString("fadmin-no-faction");
 		ConfigHandler.fWildernessEnter = ConfigHandler.prefix + plugin.tConfigString("fwilderness-enter");
 		ConfigHandler.fFactionEnter = ConfigHandler.prefix + plugin.tConfigString("ffaction-enter");
+		ConfigHandler.fWhoNoArgs = ConfigHandler.prefix + plugin.tConfigString("fwho-no-args");
+		ConfigHandler.fInviteNoArgs = ConfigHandler.prefix + plugin.tConfigString("finvite-no-args");
+		ConfigHandler.fInviteNoFaction = ConfigHandler.prefix + plugin.tConfigString("finvite-no-faction");
+		ConfigHandler.fDisbandYourFaction = ConfigHandler.prefix + plugin.tConfigString("fdisband-your-faction");
+		ConfigHandler.fDisbandOtherFaction = ConfigHandler.prefix + plugin.tConfigString("fdisband-other-faction");
+		ConfigHandler.fDisbandNoFaction = ConfigHandler.prefix + plugin.tConfigString("fdisband-no-faction");
+		ConfigHandler.fSpyOn = ConfigHandler.prefix + plugin.tConfigString("fspy-on");
+		ConfigHandler.fSpyOff = ConfigHandler.prefix + plugin.tConfigString("fspy-off");
+		ConfigHandler.fSpyNoPermission = ConfigHandler.prefix + plugin.tConfigString("fspy-no-permission");
 		
 		/* Help Menu
 		 * 
