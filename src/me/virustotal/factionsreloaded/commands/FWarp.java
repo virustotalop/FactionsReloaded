@@ -1,8 +1,8 @@
 package me.virustotal.factionsreloaded.commands;
 
 import me.virustotal.factionsreloaded.ConfigHandler;
+import me.virustotal.factionsreloaded.objects.FPlayer;
 import me.virustotal.factionsreloaded.objects.Faction;
-import me.virustotal.factionsreloaded.utils.FPlayerUtil;
 import me.virustotal.factionsreloaded.utils.FactionUtil;
 
 import org.bukkit.entity.Player;
@@ -17,7 +17,7 @@ public class FWarp {
 	
 	public static boolean doCommandWithArgs(Player player, String arg)
 	{
-		Faction fac = FactionUtil.getFactionByName(FPlayerUtil.getFPlayer(player).getFaction());
+		Faction fac = FactionUtil.getFactionByName(FPlayer.getFPlayer(player).getFaction());
 		if(fac == null)
 		{
 			player.sendMessage(ConfigHandler.fWarpNoFaction);

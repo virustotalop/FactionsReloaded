@@ -23,72 +23,72 @@ import org.bukkit.potion.PotionEffectType;
 public class ConfigHandler {
 	
 	//Faction values
-	public static int maxFactionMembers;
-	public static int maxFactionPower;
-	public static int maxFactionLand;
-	public static int maxFactionWarps;
-	public static int startingFactionWarps;
-	public static int maxFactionTagSize;
+	public  int maxFactionMembers;
+	public  int maxFactionPower;
+	public  int maxFactionLand;
+	public  int maxFactionWarps;
+	public  int startingFactionWarps;
+	public  int maxFactionTagSize;
 	
 	//Player values
-	public static int maxPlayerPower;
-	public static int minimumPlayerPower;
-	public static int startingPlayerPower;
-	public static int lossOfPlayerPerDeath;
-	public static long updatePlayerPowerTicks;
+	public  int maxPlayerPower;
+	public  int minimumPlayerPower;
+	public  int startingPlayerPower;
+	public  int lossOfPlayerPerDeath;
+	public  long updatePlayerPowerTicks;
 	
 	//Messages
-	public static String prefix;
-	public static String cannotClaimNoFaction;
-	public static String cannotDoFtagNoFaction;
-	public static String cannotDoFTagNotCorrectGroup;
-	public static String landClaimed;
-	public static String fTagNoArgs;
-	public static String fTagInUse;
-	public static String fTagTooLong;
-	public static String fTagFormat;
-	public static String fJoinNoArgs;
-	public static String fJoinSuccess;
-	public static String fJoinNotSuccesfulClosed;
-	public static String fJoinFactionDoesNotExist;
-	public static String fWarpNoArgs;
-	public static String fWarpNoFaction;
-	public static String fSetwarpNoArgs;
-	public static String fSetWarpNoFaction;
-	public static String fCreateNoArgs;
-	public static String fCreateInvalidName;
-	public static String fCreateAlreadyInFaction;
-	public static String fBypassOn;
-	public static String fBypassOff;
-	public static String fBypassNoPermission;
-	public static String fAdminNoArgs;
-	public static String fAdminNoFaction;
-	public static String fWildernessEnter;
-	public static String fFactionEnter;
-	public static String fWhoNoArgs;
-	public static String fInviteNoArgs;
-	public static String fInviteNoFaction;
-	public static String fDisbandYourFaction;
-	public static String fDisbandOtherFaction;
-	public static String fDisbandNoFaction;
-	public static String fSpyOn;
-	public static String fSpyOff;
-	public static String fSpyNoPermission;
-	public static String fChatOn;
-	public static String fChatOff;
-	public static String fChatNoFaction;	
-	public static String fChatFormat;
+	public  String prefix;
+	public  String cannotClaimNoFaction;
+	public  String cannotDoFtagNoFaction;
+	public  String cannotDoFTagNotCorrectGroup;
+	public  String landClaimed;
+	public  String fTagNoArgs;
+	public  String fTagInUse;
+	public  String fTagTooLong;
+	public  String fTagFormat;
+	public  String fJoinNoArgs;
+	public  String fJoinSuccess;
+	public  String fJoinNotSuccesfulClosed;
+	public  String fJoinFactionDoesNotExist;
+	public  String fWarpNoArgs;
+	public  String fWarpNoFaction;
+	public  String fSetwarpNoArgs;
+	public  String fSetWarpNoFaction;
+	public  String fCreateNoArgs;
+	public  String fCreateInvalidName;
+	public  String fCreateAlreadyInFaction;
+	public  String fBypassOn;
+	public  String fBypassOff;
+	public  String fBypassNoPermission;
+	public  String fAdminNoArgs;
+	public  String fAdminNoFaction;
+	public  String fWildernessEnter;
+	public  String fFactionEnter;
+	public  String fWhoNoArgs;
+	public  String fInviteNoArgs;
+	public  String fInviteNoFaction;
+	public  String fDisbandYourFaction;
+	public  String fDisbandOtherFaction;
+	public  String fDisbandNoFaction;
+	public  String fSpyOn;
+	public  String fSpyOff;
+	public  String fSpyNoPermission;
+	public  String fChatOn;
+	public  String fChatOff;
+	public  String fChatNoFaction;	
+	public  String fChatFormat;
 	
 	//Help Menu
-	public static List<String> topOfMenu;
-	public static List<String> helpMenu;
-	public static int commandsPerPage;
+	public  List<String> topOfMenu;
+	public  List<String> helpMenu;
+	public  int commandsPerPage;
 	
 	//Block list
-	public static boolean blockAny;
-	public static List<String> blockedContainers;
+	public  boolean blockAny;
+	public  List<String> blockedContainers;
 	
-	public static void loadConfigs()
+	public  void loadConfigs()
 	{
 		FactionsReloaded plugin = FactionsReloaded.get();
 		
@@ -96,92 +96,92 @@ public class ConfigHandler {
 		 * 
 		 */
 		
-		ConfigHandler.maxFactionMembers = plugin.getConfig().getInt("max-faction-members");
-		ConfigHandler.maxFactionPower = plugin.getConfig().getInt("max-faction-power");
-		ConfigHandler.maxFactionLand = plugin.getConfig().getInt("max-faction-land");
-		ConfigHandler.maxFactionWarps = plugin.getConfig().getInt("max-faction-warps");
-		ConfigHandler.startingFactionWarps = plugin.getConfig().getInt("starting-faction-warps");
-		ConfigHandler.maxFactionTagSize = plugin.getConfig().getInt("max-faction-tag-size");
+		this.maxFactionMembers = plugin.getConfig().getInt("max-faction-members");
+		this.maxFactionPower = plugin.getConfig().getInt("max-faction-power");
+		this.maxFactionLand = plugin.getConfig().getInt("max-faction-land");
+		this.maxFactionWarps = plugin.getConfig().getInt("max-faction-warps");
+		this.startingFactionWarps = plugin.getConfig().getInt("starting-faction-warps");
+		this.maxFactionTagSize = plugin.getConfig().getInt("max-faction-tag-size");
 		
 		/*If faction values are set to 0 increase them to Integer,MAX_VALUE
 		 * 
 		 */
 		
-		if(ConfigHandler.maxFactionMembers == 0)
-			ConfigHandler.maxFactionMembers = Integer.MAX_VALUE;
-		if(ConfigHandler.maxFactionPower == 0)
-			ConfigHandler.maxFactionPower = Integer.MAX_VALUE;
-		if(ConfigHandler.maxFactionLand == 0)
-			ConfigHandler.maxFactionLand = Integer.MAX_VALUE;
+		if(this.maxFactionMembers == 0)
+			this.maxFactionMembers = Integer.MAX_VALUE;
+		if(this.maxFactionPower == 0)
+			this.maxFactionPower = Integer.MAX_VALUE;
+		if(this.maxFactionLand == 0)
+			this.maxFactionLand = Integer.MAX_VALUE;
 		
 		/*Player power values
 		 * 
 		 */
 		
-		ConfigHandler.maxPlayerPower = plugin.getConfig().getInt("max-player-power");
-		ConfigHandler.minimumPlayerPower = plugin.getConfig().getInt("minimum-player-power");
-		ConfigHandler.startingPlayerPower = plugin.getConfig().getInt("starting-player-power");
-		ConfigHandler.lossOfPlayerPerDeath = plugin.getConfig().getInt("loss-of-player-power-per-death");
-		ConfigHandler.updatePlayerPowerTicks = plugin.getConfig().getLong("update-player-power-ticks");
+		this.maxPlayerPower = plugin.getConfig().getInt("max-player-power");
+		this.minimumPlayerPower = plugin.getConfig().getInt("minimum-player-power");
+		this.startingPlayerPower = plugin.getConfig().getInt("starting-player-power");
+		this.lossOfPlayerPerDeath = plugin.getConfig().getInt("loss-of-player-power-per-death");
+		this.updatePlayerPowerTicks = plugin.getConfig().getLong("update-player-power-ticks");
 		
 		/*Messages
 		 * 
 		 */
 	
-		ConfigHandler.prefix = plugin.tConfigString("prefix");
-		ConfigHandler.cannotClaimNoFaction = ConfigHandler.prefix + plugin.tConfigString("cannot-claim-no-faction");
-		ConfigHandler.cannotDoFtagNoFaction = ConfigHandler.prefix + plugin.tConfigString("cannot-do-ftag-no-faction");
-		ConfigHandler.cannotDoFTagNotCorrectGroup = ConfigHandler.prefix + plugin.tConfigString("cannot-do-ftag-not-correct-group");
-		ConfigHandler.landClaimed = ConfigHandler.prefix + plugin.tConfigString("land-claimed");
-		ConfigHandler.fTagNoArgs = ConfigHandler.prefix + plugin.tConfigString("ftag-no-args");
-		ConfigHandler.fTagInUse = ConfigHandler.prefix + plugin.tConfigString("ftag-in-use");
-		ConfigHandler.fTagTooLong = ConfigHandler.prefix + plugin.tConfigString("ftag-too-long");
-		ConfigHandler.fTagFormat = plugin.tConfigString("ftag-format");
-		ConfigHandler.fJoinNoArgs = ConfigHandler.prefix + plugin.tConfigString("fjoin-no-args");
-		ConfigHandler.fJoinSuccess = ConfigHandler.prefix + plugin.tConfigString("fjoin-success");
-		ConfigHandler.fJoinNotSuccesfulClosed = ConfigHandler.prefix + plugin.tConfigString("fjoin-not-successful-closed");
-		ConfigHandler.cannotClaimNoFaction = ConfigHandler.prefix + plugin.tConfigString("fjoin-faction-does-not-exist");
-		ConfigHandler.fWarpNoArgs = ConfigHandler.prefix + plugin.tConfigString("fwarp-no-args");
-		ConfigHandler.fWarpNoFaction = ConfigHandler.prefix + plugin.tConfigString("fwarp-no-faction");
-		ConfigHandler.fSetwarpNoArgs = ConfigHandler.prefix + plugin.tConfigString("fsetwarp-no-args");
-		ConfigHandler.fSetWarpNoFaction = ConfigHandler.prefix + plugin.tConfigString("fsetwarp-no-faction");
-		ConfigHandler.fCreateNoArgs = ConfigHandler.prefix + plugin.tConfigString("fcreate-no-args");
-		ConfigHandler.fCreateInvalidName = ConfigHandler.prefix + plugin.tConfigString("fcreate-invalid-args");
-		ConfigHandler.fCreateAlreadyInFaction = ConfigHandler.prefix + plugin.tConfigString("fcreate-already-in-faction");
-		ConfigHandler.fBypassOff = ConfigHandler.prefix + plugin.tConfigString("fbypass-off");
-		ConfigHandler.fBypassOn = ConfigHandler.prefix + plugin.tConfigString("fbypass-on");
-		ConfigHandler.fBypassNoPermission = ConfigHandler.prefix + plugin.tConfigString("fbypass-no-permission");
-		ConfigHandler.fAdminNoArgs = ConfigHandler.prefix + plugin.tConfigString("fadmin-no-args");
-		ConfigHandler.fAdminNoFaction = ConfigHandler.prefix + plugin.tConfigString("fadmin-no-faction");
-		ConfigHandler.fWildernessEnter = ConfigHandler.prefix + plugin.tConfigString("fwilderness-enter");
-		ConfigHandler.fFactionEnter = ConfigHandler.prefix + plugin.tConfigString("ffaction-enter");
-		ConfigHandler.fWhoNoArgs = ConfigHandler.prefix + plugin.tConfigString("fwho-no-args");
-		ConfigHandler.fInviteNoArgs = ConfigHandler.prefix + plugin.tConfigString("finvite-no-args");
-		ConfigHandler.fInviteNoFaction = ConfigHandler.prefix + plugin.tConfigString("finvite-no-faction");
-		ConfigHandler.fDisbandYourFaction = ConfigHandler.prefix + plugin.tConfigString("fdisband-your-faction");
-		ConfigHandler.fDisbandOtherFaction = ConfigHandler.prefix + plugin.tConfigString("fdisband-other-faction");
-		ConfigHandler.fDisbandNoFaction = ConfigHandler.prefix + plugin.tConfigString("fdisband-no-faction");
-		ConfigHandler.fSpyOn = ConfigHandler.prefix + plugin.tConfigString("fspy-on");
-		ConfigHandler.fSpyOff = ConfigHandler.prefix + plugin.tConfigString("fspy-off");
-		ConfigHandler.fSpyNoPermission = ConfigHandler.prefix + plugin.tConfigString("fspy-no-permission");
-		ConfigHandler.fChatOn = ConfigHandler.prefix + plugin.tConfigString("fchat-on");
-		ConfigHandler.fChatOff = ConfigHandler.prefix + plugin.tConfigString("fchat-off");
-		ConfigHandler.fChatNoFaction = ConfigHandler.prefix + plugin.tConfigString("fchat-no-faction");
-		ConfigHandler.fChatFormat = plugin.tConfigString("fchat-format");
+		this.prefix = plugin.tConfigString("prefix");
+		this.cannotClaimNoFaction = this.prefix + plugin.tConfigString("cannot-claim-no-faction");
+		this.cannotDoFtagNoFaction = this.prefix + plugin.tConfigString("cannot-do-ftag-no-faction");
+		this.cannotDoFTagNotCorrectGroup = this.prefix + plugin.tConfigString("cannot-do-ftag-not-correct-group");
+		this.landClaimed = this.prefix + plugin.tConfigString("land-claimed");
+		this.fTagNoArgs = this.prefix + plugin.tConfigString("ftag-no-args");
+		this.fTagInUse = this.prefix + plugin.tConfigString("ftag-in-use");
+		this.fTagTooLong = this.prefix + plugin.tConfigString("ftag-too-long");
+		this.fTagFormat = plugin.tConfigString("ftag-format");
+		this.fJoinNoArgs = this.prefix + plugin.tConfigString("fjoin-no-args");
+		this.fJoinSuccess = this.prefix + plugin.tConfigString("fjoin-success");
+		this.fJoinNotSuccesfulClosed = this.prefix + plugin.tConfigString("fjoin-not-successful-closed");
+		this.cannotClaimNoFaction = this.prefix + plugin.tConfigString("fjoin-faction-does-not-exist");
+		this.fWarpNoArgs = this.prefix + plugin.tConfigString("fwarp-no-args");
+		this.fWarpNoFaction = this.prefix + plugin.tConfigString("fwarp-no-faction");
+		this.fSetwarpNoArgs = this.prefix + plugin.tConfigString("fsetwarp-no-args");
+		this.fSetWarpNoFaction = this.prefix + plugin.tConfigString("fsetwarp-no-faction");
+		this.fCreateNoArgs = this.prefix + plugin.tConfigString("fcreate-no-args");
+		this.fCreateInvalidName = this.prefix + plugin.tConfigString("fcreate-invalid-args");
+		this.fCreateAlreadyInFaction = this.prefix + plugin.tConfigString("fcreate-already-in-faction");
+		this.fBypassOff = this.prefix + plugin.tConfigString("fbypass-off");
+		this.fBypassOn = this.prefix + plugin.tConfigString("fbypass-on");
+		this.fBypassNoPermission = this.prefix + plugin.tConfigString("fbypass-no-permission");
+		this.fAdminNoArgs = this.prefix + plugin.tConfigString("fadmin-no-args");
+		this.fAdminNoFaction = this.prefix + plugin.tConfigString("fadmin-no-faction");
+		this.fWildernessEnter = this.prefix + plugin.tConfigString("fwilderness-enter");
+		this.fFactionEnter = this.prefix + plugin.tConfigString("ffaction-enter");
+		this.fWhoNoArgs = this.prefix + plugin.tConfigString("fwho-no-args");
+		this.fInviteNoArgs = this.prefix + plugin.tConfigString("finvite-no-args");
+		this.fInviteNoFaction = this.prefix + plugin.tConfigString("finvite-no-faction");
+		this.fDisbandYourFaction = this.prefix + plugin.tConfigString("fdisband-your-faction");
+		this.fDisbandOtherFaction = this.prefix + plugin.tConfigString("fdisband-other-faction");
+		this.fDisbandNoFaction = this.prefix + plugin.tConfigString("fdisband-no-faction");
+		this.fSpyOn = this.prefix + plugin.tConfigString("fspy-on");
+		this.fSpyOff = this.prefix + plugin.tConfigString("fspy-off");
+		this.fSpyNoPermission = this.prefix + plugin.tConfigString("fspy-no-permission");
+		this.fChatOn = this.prefix + plugin.tConfigString("fchat-on");
+		this.fChatOff = this.prefix + plugin.tConfigString("fchat-off");
+		this.fChatNoFaction = this.prefix + plugin.tConfigString("fchat-no-faction");
+		this.fChatFormat = plugin.tConfigString("fchat-format");
 		
 		/* Help Menu
 		 * 
 		 */
 		
-		ConfigHandler.topOfMenu = plugin.tConfigStringList("top-of-menu");
-		ConfigHandler.helpMenu = plugin.tConfigStringList("help-menu");
-		ConfigHandler.commandsPerPage = plugin.getConfig().getInt("commands-per-page");
+		this.topOfMenu = plugin.tConfigStringList("top-of-menu");
+		this.helpMenu = plugin.tConfigStringList("help-menu");
+		this.commandsPerPage = plugin.getConfig().getInt("commands-per-page");
 		
 		/*Blocked containers
 		 * 
 		 */
-		ConfigHandler.blockAny = plugin.getConfig().getBoolean("blockAny");
-		ConfigHandler.blockedContainers = plugin.getConfig().getStringList("blocked-containers");
+		this.blockAny = plugin.getConfig().getBoolean("blockAny");
+		this.blockedContainers = plugin.getConfig().getStringList("blocked-containers");
 		
 		/*Config files
 		 * 

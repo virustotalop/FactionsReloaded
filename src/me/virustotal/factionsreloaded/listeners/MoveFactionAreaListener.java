@@ -1,7 +1,7 @@
 package me.virustotal.factionsreloaded.listeners;
 
-import me.virustotal.factionsreloaded.ConfigHandler;
-import me.virustotal.factionsreloaded.utils.BoardUtil;
+import me.virustotal.factionsreloaded.FactionsReloaded;
+import me.virustotal.factionsreloaded.objects.Board;
 
 import org.bukkit.Chunk;
 import org.bukkit.event.EventHandler;
@@ -10,6 +10,12 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 public class MoveFactionAreaListener implements Listener {
 	
+	private FactionsReloaded plugin;
+	public MoveFactionAreaListener(FactionsReloaded plugin)
+	{
+		this.plugin = plugin;
+	}
+	
 	@EventHandler
 	public void move(PlayerMoveEvent e)
 	{
@@ -17,16 +23,16 @@ public class MoveFactionAreaListener implements Listener {
 		{
 			Chunk fromChunk = e.getFrom().getChunk();
 			Chunk toChunk = e.getFrom().getChunk();
-			String from = BoardUtil.getFaction(fromChunk.getWorld().getName(), fromChunk.getX(), fromChunk.getZ());
-			String to = BoardUtil.getFaction(toChunk.getWorld().getName(),toChunk.getX(),toChunk.getZ());
+			String from = Board.getFaction(fromChunk.getWorld().getName(), fromChunk.getX(), fromChunk.getZ());
+			String to = Board.getFaction(toChunk.getWorld().getName(),toChunk.getX(),toChunk.getZ());
 			
 			if(!from.equals("none") && to.equals("none"))
 			{
-				e.getPlayer().sendMessage(ConfigHandler.fWildernessEnter);
+				e.getPlayer().sendMessage(plugin.config.fWildernessEnter);
 			}
 			else if(from.equals("none") && !to.equals("none"))
 			{
-				e.getPlayer().sendMessage(ConfigHandler.fFactionEnter.replace("{faction}", to));
+				e.getPlayer().sendMessage(plugin.config.fFactionEnter.replace("{faction}", to));
 			}
 		}
 	}

@@ -2,7 +2,6 @@ package me.virustotal.factionsreloaded.listeners;
 
 import java.util.ArrayList;
 
-import me.virustotal.factionsreloaded.ConfigHandler;
 import me.virustotal.factionsreloaded.FactionsReloaded;
 import me.virustotal.factionsreloaded.objects.FPlayer;
 
@@ -15,12 +14,17 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class FPlayerCacheListener implements Listener {
 	
+	private FactionsReloaded plugin;
+	public FPlayerCacheListener(FactionsReloaded plugin)
+	{
+		this.plugin = plugin;
+	}
+	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e)
 	{	
 		Player player = e.getPlayer();
 		String pName = player.getName();
-		FactionsReloaded plugin = FactionsReloaded.get();
 		ArrayList<FPlayer> fPlayers = plugin.fPlayers;
 		
 		if(plugin.fPlayerCache.containsKey(pName))
@@ -37,7 +41,7 @@ public class FPlayerCacheListener implements Listener {
 			}
 		}
 		
-		FPlayer newPlayer = new FPlayer(player.getUniqueId(),ConfigHandler.startingPlayerPower,"none");
+		FPlayer newPlayer = new FPlayer(player.getUniqueId(),plugin.config.startingPlayerPower,"none");
 		plugin.fPlayerCache.put(pName, newPlayer);
 		plugin.fPlayers.add(newPlayer);
 		/* Set player in the player config file

@@ -1,8 +1,8 @@
 package me.virustotal.factionsreloaded.commands;
 
 import me.virustotal.factionsreloaded.ConfigHandler;
+import me.virustotal.factionsreloaded.objects.FPlayer;
 import me.virustotal.factionsreloaded.objects.Faction;
-import me.virustotal.factionsreloaded.utils.FPlayerUtil;
 import me.virustotal.factionsreloaded.utils.FactionUtil;
 
 import org.bukkit.Chunk;
@@ -12,7 +12,7 @@ public class FClaim {
 	
 	public static boolean doCommand(Player player)
 	{
-		Faction fac = FactionUtil.getFactionByName(FPlayerUtil.getFPlayer(player).getFaction());
+		Faction fac = FactionUtil.getFactionByName(FPlayer.getFPlayer(player).getFaction());
 		if(fac.getName().equals("none"))
 		{
 			player.sendMessage(ConfigHandler.cannotClaimNoFaction);

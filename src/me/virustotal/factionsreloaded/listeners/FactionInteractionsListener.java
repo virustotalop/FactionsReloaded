@@ -1,9 +1,8 @@
 package me.virustotal.factionsreloaded.listeners;
 
-import me.virustotal.factionsreloaded.ConfigHandler;
+import me.virustotal.factionsreloaded.FactionsReloaded;
 import me.virustotal.factionsreloaded.objects.FPlayer;
-import me.virustotal.factionsreloaded.utils.FPlayerUtil;
-import me.virustotal.factionsreloaded.utils.FactionUtil;
+import me.virustotal.factionsreloaded.objects.Faction;
 
 import org.bukkit.Chunk;
 import org.bukkit.entity.Player;
@@ -15,13 +14,19 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class FactionInteractionsListener {
 
+	private FactionsReloaded plugin;
+	public FactionInteractionsListener(FactionsReloaded plugin)
+	{
+		this.plugin = plugin;
+	}
+	
 	@EventHandler
 	public void blockBuild(BlockPlaceEvent e)
 	{
 		Player player = e.getPlayer();
-		FPlayer fPlayer = FPlayerUtil.getFPlayer(player);
+		FPlayer fPlayer = FPlayer.getFPlayer(player);
 		Chunk chunk = e.getBlock().getChunk();
-		if(!FactionUtil.canBuild(fPlayer, chunk.getX(), chunk.getZ()))
+		if(!Faction.canBuild(fPlayer, chunk.getX(), chunk.getZ()))
 		{
 			e.setCancelled(true);
 		}
@@ -31,9 +36,9 @@ public class FactionInteractionsListener {
 	public void blockBreak(BlockBreakEvent e)
 	{
 		Player player = e.getPlayer();
-		FPlayer fPlayer = FPlayerUtil.getFPlayer(player);
+		FPlayer fPlayer = FPlayer.getFPlayer(player);
 		Chunk chunk = e.getBlock().getChunk();
-		if(!FactionUtil.canBuild(fPlayer, chunk.getX(), chunk.getZ()))
+		if(!Faction.canBuild(fPlayer, chunk.getX(), chunk.getZ()))
 		{
 			e.setCancelled(true);
 		}
@@ -42,16 +47,16 @@ public class FactionInteractionsListener {
 	@EventHandler
 	public void blockInteract(PlayerInteractEvent e)
 	{
-		if(ConfigHandler.blockAny)
+		if(plugin.config.blockAny)
 		{
 			if(e.getAction() == Action.RIGHT_CLICK_BLOCK)
 			{
 				Player player = e.getPlayer();
-				FPlayer fPlayer = FPlayerUtil.getFPlayer(player);
+				FPlayer fPlayer = FPlayer.getFPlayer(player);
 				Chunk chunk = e.getClickedBlock().getChunk();
-				if(!FactionUtil.canBuild(fPlayer, chunk.getX(), chunk.getZ()))
+				if(!Faction.canBuild(fPlayer, chunk.getX(), chunk.getZ()))
 				{
-					if(ConfigHandler.blockedContainers.contains(e.getClickedBlock().getType().name()))
+					if(plugin.config.blockedContainers.contains(e.getClickedBlock().getType().name()))
 					{
 						e.setCancelled(true);
 					}

@@ -6,7 +6,6 @@ import me.virustotal.factionsreloaded.ConfigHandler;
 import me.virustotal.factionsreloaded.FactionsReloaded;
 import me.virustotal.factionsreloaded.objects.FPlayer;
 import me.virustotal.factionsreloaded.objects.Faction;
-import me.virustotal.factionsreloaded.utils.FPlayerUtil;
 import me.virustotal.factionsreloaded.utils.FactionUtil;
 
 import org.bukkit.ChatColor;
@@ -22,7 +21,7 @@ public class FTag {
 	
 	public static boolean doCommandWithArgs(Player player, String arg)
 	{
-		FPlayer fPlayer = FPlayerUtil.getFPlayer(player);
+		FPlayer fPlayer = FPlayer.getFPlayer(player);
 		Faction pFac = FactionUtil.getFactionByName(fPlayer.getFaction());
 		
 		if(pFac.getName().equalsIgnoreCase("none"))

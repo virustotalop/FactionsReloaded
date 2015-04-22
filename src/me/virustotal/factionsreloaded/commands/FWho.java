@@ -1,6 +1,7 @@
 package me.virustotal.factionsreloaded.commands;
 
 import me.virustotal.factionsreloaded.ConfigHandler;
+import me.virustotal.factionsreloaded.FactionsReloaded;
 
 import org.bukkit.entity.Player;
 
@@ -8,7 +9,8 @@ public class FWho {
 	
 	public static boolean doCommand(Player player)
 	{
-		player.sendMessage(ConfigHandler.fWhoNoArgs);
+		FactionsReloaded plugin = FactionsReloaded.get();
+		player.sendMessage(plugin.config.fWhoNoArgs);
 		return true;
 	}
 	

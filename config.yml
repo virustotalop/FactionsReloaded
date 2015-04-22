@@ -25,6 +25,7 @@ cannot-do-ftag-not-correct-group: "You cannot do /f tag you are not the faction 
 land-claimed: "&6You claimed some land!"
 ftag-no-args: "&6You need to do /f tag <name>!"
 ftag-in-use: "&6This ftag is in use!"
+ftag-format: "&0[{tag}&0] {message}"
 ftag-too-long: "&6The faction tag you tried is too long the max is {length}!"
 fjoin-no-args: "&6Do /f join <fname> to join a faction!
 fjoin-success: "&6You have joined the faction {faction}!"

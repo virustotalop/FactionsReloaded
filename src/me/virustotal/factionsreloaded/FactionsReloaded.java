@@ -33,13 +33,15 @@ public class FactionsReloaded extends JavaPlugin {
 	
 	public HashMap<String,FPlayer> fPlayerCache = new HashMap<String,FPlayer>();
 	
+	public ConfigHandler config = new ConfigHandler();
+	
 	public void onEnable() {
 		plugin = this;
-		ConfigHandler.loadConfigs();
+		config.loadConfigs();
 		
 		PluginManager pm = Bukkit.getPluginManager();
-		pm.registerEvents(new DeathPowerListener(),this);
-		pm.registerEvents(new FPlayerCacheListener(), this);
+		pm.registerEvents(new DeathPowerListener(this),this);
+		pm.registerEvents(new FPlayerCacheListener(this), this);
 		this.updateFactionPower();
 	}
 	
@@ -83,7 +85,7 @@ public class FactionsReloaded extends JavaPlugin {
 			{
 
 			}
-		},ConfigHandler.updatePlayerPowerTicks);
+		},config.updatePlayerPowerTicks);
 	}
 
 }

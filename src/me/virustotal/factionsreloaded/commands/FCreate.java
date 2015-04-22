@@ -4,7 +4,6 @@ import me.virustotal.factionsreloaded.ConfigHandler;
 import me.virustotal.factionsreloaded.FactionsReloaded;
 import me.virustotal.factionsreloaded.objects.FPlayer;
 import me.virustotal.factionsreloaded.objects.Faction;
-import me.virustotal.factionsreloaded.utils.FPlayerUtil;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -21,7 +20,7 @@ public class FCreate {
 	{
 		FactionsReloaded plugin = FactionsReloaded.get();
 		String stripped = ChatColor.stripColor(arg);
-		FPlayer fPlayer = FPlayerUtil.getFPlayer(player);
+		FPlayer fPlayer = FPlayer.getFPlayer(player);
 		if(!fPlayer.getFaction().equals("none"))
 		{
 			player.sendMessage(ConfigHandler.fCreateAlreadyInFaction);

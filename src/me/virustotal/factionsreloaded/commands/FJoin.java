@@ -4,7 +4,7 @@ import me.virustotal.factionsreloaded.ConfigHandler;
 import me.virustotal.factionsreloaded.FactionsReloaded;
 import me.virustotal.factionsreloaded.objects.FPlayer;
 import me.virustotal.factionsreloaded.objects.Faction;
-import me.virustotal.factionsreloaded.utils.FPlayerUtil;
+
 import me.virustotal.factionsreloaded.utils.FactionUtil;
 
 import org.bukkit.entity.Player;
@@ -20,7 +20,7 @@ public class FJoin {
 	public static boolean doCommandWithArgs(Player player, String arg)
 	{
 		Faction fac = FactionUtil.getFactionByName(arg);
-		FPlayer fPlayer = FPlayerUtil.getFPlayer(player);
+		FPlayer fPlayer = FPlayer.getFPlayer(player);
 		FactionsReloaded plugin = FactionsReloaded.get();
 		
 		if(fac == null)
