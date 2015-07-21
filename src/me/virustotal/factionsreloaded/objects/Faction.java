@@ -15,17 +15,19 @@ public class Faction {
 	private int power;
 	private int land;
 	private boolean open;
+	private FactionEnum factionEnum;
 	private String admin;
 	private ArrayList<String> mods;
 	private ArrayList<String> members;
 
-	public Faction(String name, String tag, int power, int land,boolean open, String admin, ArrayList<String> mods, ArrayList<String> members)
+	public Faction(String name, String tag, int power, int land, boolean open, FactionEnum factionEnum, String admin, ArrayList<String> mods, ArrayList<String> members)
 	{
 		this.name = name;
 		this.tag = tag;
 		this.power = power;
 		this.land = land;
 		this.open = open;
+		this.factionEnum = factionEnum;
 		this.admin = admin;
 		this.mods = mods;
 		this.members = members;
@@ -56,6 +58,11 @@ public class Faction {
 		return this.open;
 	}
 	
+	public FactionEnum getFactionEnum()
+	{
+		return this.factionEnum;
+	}
+	
 	public String getAdmin()
 	{
 		return this.admin;
@@ -83,16 +90,15 @@ public class Faction {
 	
 	public static boolean canClaim(Faction claimingFaction, String world,int x, int z)
 	{	
-		String string = Board.getFaction(world, x, z);
+		Faction fac = Board.getFaction(world, x, z);
 	
-		if(string.equals("none"))
+		if(fac.getName().equals("none"))
 		{
 			if(claimingFaction.getPower() > claimingFaction.getLand())
 				return true;
 		}
 		else
 		{
-			Faction fac = Faction.getFactionByName(string);
 			return (fac.getPower() < fac.getLand() && claimingFaction.getPower() > claimingFaction.getLand());
 		}
 		return false;

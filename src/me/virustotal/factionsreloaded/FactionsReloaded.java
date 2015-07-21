@@ -85,7 +85,7 @@ public class FactionsReloaded extends JavaPlugin {
 			{
 
 			}
-		},config.updatePlayerPowerTicks);
+		},this.config.updatePlayerPowerTicks);
 	}
 
 }

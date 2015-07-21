@@ -34,12 +34,12 @@ public class Board {
 		return this.world;
 	}
 	
-	public String getFaction()
+	public Faction getFaction()
 	{
-		return this.faction;
+		return Faction.getFactionByName(this.faction);
 	}
 	
-	public static String getFaction(String world, int x, int z)
+	public static Faction getFaction(String world, int x, int z)
 	{
 		ArrayList<Board> boards = FactionsReloaded.get().boards;
 		for(Board board : boards)
@@ -47,7 +47,7 @@ public class Board {
 			if(board.getX() == x && board.getZ() == z && board.getWorld().equals(world))
 				return board.getFaction();
 		}
-		return "none";
+		return null;
 	}
 
 }
