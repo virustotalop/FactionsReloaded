@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.jar.JarEntry;
@@ -30,15 +31,22 @@ public class Snooper {
 			Enumeration<JarEntry> entries = jar.entries();
 			int count = 0;
 			
-			while(entries.hasMoreElements())
+			while(entries.hasMoreElements() )
 			{
 				JarEntry entry = entries.nextElement();
 				String name = entry.getName().replace('/', '.');
 				name = name.substring(0, name.lastIndexOf("."));
-				if(name.contains("Listener"))
+				if(name.contains("me.virustotal"))
 				{
-					pm.registerEvents((Listener) Class.forName(name).getDeclaredConstructor(plugin.getClass()).newInstance(plugin), plugin);
-					count ++;
+					Class<?> theClass = Class.forName(name);
+					if(theClass.getInterfaces().length > 0)
+					{
+						if(Arrays.asList(theClass.getInterfaces()).contains(Listener.class))
+						{
+							pm.registerEvents((Listener) theClass.getDeclaredConstructor(plugin.getClass()).newInstance(plugin), plugin);
+							count ++;
+						}
+					}
 				}
 			}
 			plugin.getLogger().log(Level.INFO, count + " listeners loaded!");
@@ -58,20 +66,26 @@ public class Snooper {
 			JarFile jar = new JarFile(jarFile);
 			Enumeration<JarEntry> entries = jar.entries();
 			int count = 0;
-			
+
 			while(entries.hasMoreElements())
 			{
 				JarEntry entry = entries.nextElement();
 				String name = entry.getName().replace('/', '.');
 				name = name.substring(0, name.lastIndexOf("."));
-				if(name.contains("Command"))
+				if(name.contains("me.virustotal"))
 				{
 					Class<?> theClass = Class.forName(name);
-					Method method = theClass.getMethod("getCmd");
-					Object instance = theClass.newInstance();
-					String command = (String) method.invoke(instance);
-					plugin.getCommand(command).setExecutor((CommandExecutor) instance);
-					count ++;
+					if(theClass.getInterfaces().length > 0)
+					{
+						if(Arrays.asList(theClass.getInterfaces()).contains(CommandExecutor.class))
+						{
+							Method method = theClass.getMethod("getCmd");
+							Object instance = theClass.newInstance();
+							String command = (String) method.invoke(instance);
+							plugin.getCommand(command).setExecutor((CommandExecutor) instance);
+							count ++;
+						}
+					}
 				}
 			}
 			plugin.getLogger().log(Level.INFO, count + " commands loaded!");
