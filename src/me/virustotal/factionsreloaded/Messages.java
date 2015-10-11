@@ -43,48 +43,48 @@ public class Messages {
 	public static String fChatNoFaction;	
 	public static String fChatFormat;
 	
-	public Messages(FactionsReloaded plugin)
+	/*public Messages(FactionsReloaded plugin)
 	{
-		prefix = plugin.tConfigString("prefix");
-		cannotClaimNoFaction = prefix + plugin.tConfigString("cannot-claim-no-faction");
-		cannotDoFtagNoFaction = prefix + plugin.tConfigString("cannot-do-ftag-no-faction");
-		cannotDoFTagNotCorrectGroup = prefix + plugin.tConfigString("cannot-do-ftag-not-correct-group");
-		landClaimed = prefix + plugin.tConfigString("land-claimed");
-		fTagNoArgs = prefix + plugin.tConfigString("ftag-no-args");
-		fTagInUse = prefix + plugin.tConfigString("ftag-in-use");
-		fTagTooLong = prefix + plugin.tConfigString("ftag-too-long");
-		fTagFormat = plugin.tConfigString("ftag-format");
-		fJoinNoArgs = prefix + plugin.tConfigString("fjoin-no-args");
-		fJoinSuccess = prefix + plugin.tConfigString("fjoin-success");
-		fJoinNotSuccesfulClosed = prefix + plugin.tConfigString("fjoin-not-successful-closed");
-		cannotClaimNoFaction = prefix + plugin.tConfigString("fjoin-faction-does-not-exist");
-		fWarpNoArgs = prefix + plugin.tConfigString("fwarp-no-args");
-		fWarpNoFaction = prefix + plugin.tConfigString("fwarp-no-faction");
-		fSetwarpNoArgs = prefix + plugin.tConfigString("fsetwarp-no-args");
-		fSetWarpNoFaction = prefix + plugin.tConfigString("fsetwarp-no-faction");
-		fCreateNoArgs = prefix + plugin.tConfigString("fcreate-no-args");
-		fCreateInvalidName = prefix + plugin.tConfigString("fcreate-invalid-args");
-		fCreateAlreadyInFaction = prefix + plugin.tConfigString("fcreate-already-in-faction");
-		fBypassOff = prefix + plugin.tConfigString("fbypass-off");
-		fBypassOn = prefix + plugin.tConfigString("fbypass-on");
-		fBypassNoPermission = prefix + plugin.tConfigString("fbypass-no-permission");
-		fAdminNoArgs = prefix + plugin.tConfigString("fadmin-no-args");
-		fAdminNoFaction = prefix + plugin.tConfigString("fadmin-no-faction");
-		fWildernessEnter = prefix + plugin.tConfigString("fwilderness-enter");
-		fFactionEnter = prefix + plugin.tConfigString("ffaction-enter");
-		fWhoNoArgs = prefix + plugin.tConfigString("fwho-no-args");
-		fInviteNoArgs = prefix + plugin.tConfigString("finvite-no-args");
-		fInviteNoFaction = prefix + plugin.tConfigString("finvite-no-faction");
-		fDisbandYourFaction = prefix + plugin.tConfigString("fdisband-your-faction");
-		fDisbandOtherFaction = prefix + plugin.tConfigString("fdisband-other-faction");
-		fDisbandNoFaction = prefix + plugin.tConfigString("fdisband-no-faction");
-		fSpyOn = prefix + plugin.tConfigString("fspy-on");
-		fSpyOff = prefix + plugin.tConfigString("fspy-off");
-		fSpyNoPermission = prefix + plugin.tConfigString("fspy-no-permission");
-		fChatOn = prefix + plugin.tConfigString("fchat-on");
-		fChatOff = prefix + plugin.tConfigString("fchat-off");
-		fChatNoFaction = prefix + plugin.tConfigString("fchat-no-faction");
-		fChatFormat = plugin.tConfigString("fchat-format");
-	}
+		prefix = plugin.tMessageString("prefix");
+		cannotClaimNoFaction = prefix + plugin.tMessageString("cannot-claim-no-faction");
+		cannotDoFtagNoFaction = prefix + plugin.tMessageString("cannot-do-ftag-no-faction");
+		cannotDoFTagNotCorrectGroup = prefix + plugin.tMessageString("cannot-do-ftag-not-correct-group");
+		landClaimed = prefix + plugin.tMessageString("land-claimed");
+		fTagNoArgs = prefix + plugin.tMessageString("ftag-no-args");
+		fTagInUse = prefix + plugin.tMessageString("ftag-in-use");
+		fTagTooLong = prefix + plugin.tMessageString("ftag-too-long");
+		fTagFormat = plugin.tMessageString("ftag-format");
+		fJoinNoArgs = prefix + plugin.tMessageString("fjoin-no-args");
+		fJoinSuccess = prefix + plugin.tMessageString("fjoin-success");
+		fJoinNotSuccesfulClosed = prefix + plugin.tMessageString("fjoin-not-successful-closed");
+		cannotClaimNoFaction = prefix + plugin.tMessageString("fjoin-faction-does-not-exist");
+		fWarpNoArgs = prefix + plugin.tMessageString("fwarp-no-args");
+		fWarpNoFaction = prefix + plugin.tMessageString("fwarp-no-faction");
+		fSetwarpNoArgs = prefix + plugin.tMessageString("fsetwarp-no-args");
+		fSetWarpNoFaction = prefix + plugin.tMessageString("fsetwarp-no-faction");
+		fCreateNoArgs = prefix + plugin.tMessageString("fcreate-no-args");
+		fCreateInvalidName = prefix + plugin.tMessageString("fcreate-invalid-args");
+		fCreateAlreadyInFaction = prefix + plugin.tMessageString("fcreate-already-in-faction");
+		fBypassOff = prefix + plugin.tMessageString("fbypass-off");
+		fBypassOn = prefix + plugin.tMessageString("fbypass-on");
+		fBypassNoPermission = prefix + plugin.tMessageString("fbypass-no-permission");
+		fAdminNoArgs = prefix + plugin.tMessageString("fadmin-no-args");
+		fAdminNoFaction = prefix + plugin.tMessageString("fadmin-no-faction");
+		fWildernessEnter = prefix + plugin.tMessageString("fwilderness-enter");
+		fFactionEnter = prefix + plugin.tMessageString("ffaction-enter");
+		fWhoNoArgs = prefix + plugin.tMessageString("fwho-no-args");
+		fInviteNoArgs = prefix + plugin.tMessageString("finvite-no-args");
+		fInviteNoFaction = prefix + plugin.tMessageString("finvite-no-faction");
+		fDisbandYourFaction = prefix + plugin.tMessageString("fdisband-your-faction");
+		fDisbandOtherFaction = prefix + plugin.tMessageString("fdisband-other-faction");
+		fDisbandNoFaction = prefix + plugin.tMessageString("fdisband-no-faction");
+		fSpyOn = prefix + plugin.tMessageString("fspy-on");
+		fSpyOff = prefix + plugin.tMessageString("fspy-off");
+		fSpyNoPermission = prefix + plugin.tMessageString("fspy-no-permission");
+		fChatOn = prefix + plugin.tMessageString("fchat-on");
+		fChatOff = prefix + plugin.tMessageString("fchat-off");
+		fChatNoFaction = prefix + plugin.tMessageString("fchat-no-faction");
+		fChatFormat = plugin.tMessageString("fchat-format");
+	}*/
 
 }

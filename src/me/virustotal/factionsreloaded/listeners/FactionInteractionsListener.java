@@ -7,12 +7,13 @@ import me.virustotal.factionsreloaded.objects.Faction;
 import org.bukkit.Chunk;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-public class FactionInteractionsListener {
+public class FactionInteractionsListener implements Listener {
 
 	private FactionsReloaded plugin;
 	public FactionInteractionsListener(FactionsReloaded plugin)

@@ -2,19 +2,13 @@ package me.virustotal.factionsreloaded;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-import me.virustotal.factionsreloaded.listeners.DeathPowerListener;
-import me.virustotal.factionsreloaded.listeners.FPlayerCacheListener;
 import me.virustotal.factionsreloaded.objects.Board;
 import me.virustotal.factionsreloaded.objects.FHome;
 import me.virustotal.factionsreloaded.objects.FPlayer;
 import me.virustotal.factionsreloaded.objects.FWarp;
 import me.virustotal.factionsreloaded.objects.Faction;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class FactionsReloaded extends JavaPlugin {
@@ -34,36 +28,41 @@ public class FactionsReloaded extends JavaPlugin {
 	public HashMap<String,FPlayer> fPlayerCache = new HashMap<String,FPlayer>();
 	
 	public ConfigHandler config = new ConfigHandler();
+	public Messages messages;
 	
 	public void onEnable() {
 		plugin = this;
-		config.loadConfigs();
 		
-		PluginManager pm = Bukkit.getPluginManager();
-		pm.registerEvents(new DeathPowerListener(this),this);
-		pm.registerEvents(new FPlayerCacheListener(this), this);
-		this.updateFactionPower();
+		//Snooper.newVariableInstances(this.getClass());
+		Snooper.loadListeners(this);
+		Snooper.loadCommands(this);
+		
+		
+		//config.loadConfigs();
+		//messages = new Messages(this);
+		//this.updateFactionPower();
 	}
 	
 	public void onDisable() {
 		//onDisable do cleanup
-		factions.clear();
-		fPlayers.clear();
-		boards.clear();
-		fPlayerCache.clear();
-		fHomes.clear();
-		fWarps.clear();
-		bypassedPlayers.clear();
+		//Snooper.cleanupVariables(this.getClass());
 		
 	}
 	
-	public static FactionsReloaded get() {
+	public static FactionsReloaded get() 
+	{
 		return plugin;
 	}
 	
-	public String tConfigString(String val)
+	/*public String tConfigString(String val)
 	{
 		return ChatColor.translateAlternateColorCodes('&', this.getConfig().getString(val));
+	}
+	
+	public String tMessageString(String val)
+	{
+		YamlConfiguration mYaml = YamlConfiguration.loadConfiguration(new File(this.getDataFolder().getPath(),"messages.yml"));
+		return ChatColor.translateAlternateColorCodes('&', mYaml.getString(val));
 	}
 	
 	public List<String> tConfigStringList(String val)
@@ -86,6 +85,6 @@ public class FactionsReloaded extends JavaPlugin {
 
 			}
 		},this.config.updatePlayerPowerTicks);
-	}
+	}*/
 
 }

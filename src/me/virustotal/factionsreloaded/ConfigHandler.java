@@ -88,8 +88,8 @@ public class ConfigHandler {
 		 * 
 		 */
 		
-		this.topOfMenu = plugin.tConfigStringList("top-of-menu");
-		this.helpMenu = plugin.tConfigStringList("help-menu");
+		//this.topOfMenu = plugin.tConfigStringList("top-of-menu");
+		//this.helpMenu = plugin.tConfigStringList("help-menu");
 		this.commandsPerPage = plugin.getConfig().getInt("commands-per-page");
 		
 		/*Blocked containers
