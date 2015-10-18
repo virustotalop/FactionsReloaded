@@ -52,9 +52,8 @@ public class ConfigHandler {
 	public static List<String> blockedContainers;
 	
 	
-	public void loadConfigs()
+	protected static void loadConfigs(FactionsReloaded plugin)
 	{
-		FactionsReloaded plugin = FactionsReloaded.get();
 		
 		/*Faction values
 		 * 

@@ -43,11 +43,11 @@ public class FactionsReloaded extends JavaPlugin {
 		Snooper.loadListeners(this);
 		Snooper.loadCommands(this);
 		this.messageFile = new File(this.getDataFolder().getPath(),"messages.yml");
-		
 		this.saveResource(this.messageFile.getName(), false);
-		
 		this.mYaml = YamlConfiguration.loadConfiguration(messageFile);
 		
+		Messages.loadMessages(this);
+		ConfigHandler.loadConfigs(this);
 		
 		//config.loadConfigs();
 		//messages = new Messages(this);

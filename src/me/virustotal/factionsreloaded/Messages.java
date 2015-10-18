@@ -44,81 +44,38 @@ public class Messages {
 	public static String fChatOff;
 	public static String fChatNoFaction;	
 	
-	public Messages(FactionsReloaded plugin)
+	protected static void loadMessages(FactionsReloaded plugin)
 	{
-		for(Field field : this.getClass().getFields())
+		for(Field field : Messages.class.getFields())
 		{
-				String fName = field.getName();
-				ArrayList<Character> chars = new ArrayList<Character>();
-				char[] ar = fName.toCharArray();
-				for(int i = 0; i < ar.length; i++)
+			String fName = field.getName();
+			ArrayList<Character> chars = new ArrayList<Character>();
+			char[] ar = fName.toCharArray();
+			for(int i = 0; i < ar.length; i++)
+			{
+				if(Character.isUpperCase(ar[i]))
 				{
-					if(Character.isUpperCase(ar[i]))
-					{
-						if(!chars.contains(ar[i]))
-							chars.add(ar[i]);
-					}
+					if(!chars.contains(ar[i]))
+						chars.add(ar[i]);
 				}
-				int count = 0;
-				for(Character theChar : chars)
-				{
-					if(count == 0)
-						fName = fName.replace(("" + theChar), ("-" + Character.toLowerCase(theChar) + "-"));
-					else
-						fName = fName.replace(("" + theChar), (Character.toLowerCase(theChar) + "-"));
-					count += 1;
-				}
-				try 
-				{
-					field.set(field, ConfigHandler.prefix + plugin.tMessageString(fName));
-				} 
-				catch (IllegalArgumentException | IllegalAccessException e) 
-				{
-					e.printStackTrace();
-				}
+			}
+			int count = 0;
+			for(Character theChar : chars)
+			{
+				if(count == 0)
+					fName = fName.replace(("" + theChar), ("-" + Character.toLowerCase(theChar) + "-"));
+				else
+					fName = fName.replace(("" + theChar), (Character.toLowerCase(theChar) + "-"));
+				count += 1;
+			}
+			try 
+			{
+				field.set(field, ConfigHandler.prefix + plugin.tMessageString(fName));
+			} 
+			catch (IllegalArgumentException | IllegalAccessException e) 
+			{
+				e.printStackTrace();
+			}
 		}
-		
-		
-		/*prefix = plugin.tMessageString("prefix");
-		cannotClaimNoFaction = prefix + plugin.tMessageString("cannot-claim-no-faction");
-		cannotDoFtagNoFaction = prefix + plugin.tMessageString("cannot-do-ftag-no-faction");
-		cannotDoFTagNotCorrectGroup = prefix + plugin.tMessageString("cannot-do-ftag-not-correct-group");
-		landClaimed = prefix + plugin.tMessageString("land-claimed");
-		fTagNoArgs = prefix + plugin.tMessageString("ftag-no-args");
-		fTagInUse = prefix + plugin.tMessageString("ftag-in-use");
-		fTagTooLong = prefix + plugin.tMessageString("ftag-too-long");
-		fTagFormat = plugin.tMessageString("ftag-format");
-		fJoinNoArgs = prefix + plugin.tMessageString("fjoin-no-args");
-		fJoinSuccess = prefix + plugin.tMessageString("fjoin-success");
-		fJoinNotSuccesfulClosed = prefix + plugin.tMessageString("fjoin-not-successful-closed");
-		cannotClaimNoFaction = prefix + plugin.tMessageString("fjoin-faction-does-not-exist");
-		fWarpNoArgs = prefix + plugin.tMessageString("fwarp-no-args");
-		fWarpNoFaction = prefix + plugin.tMessageString("fwarp-no-faction");
-		fSetwarpNoArgs = prefix + plugin.tMessageString("fsetwarp-no-args");
-		fSetWarpNoFaction = prefix + plugin.tMessageString("fsetwarp-no-faction");
-		fCreateNoArgs = prefix + plugin.tMessageString("fcreate-no-args");
-		fCreateInvalidName = prefix + plugin.tMessageString("fcreate-invalid-args");
-		fCreateAlreadyInFaction = prefix + plugin.tMessageString("fcreate-already-in-faction");
-		fBypassOff = prefix + plugin.tMessageString("fbypass-off");
-		fBypassOn = prefix + plugin.tMessageString("fbypass-on");
-		fBypassNoPermission = prefix + plugin.tMessageString("fbypass-no-permission");
-		fAdminNoArgs = prefix + plugin.tMessageString("fadmin-no-args");
-		fAdminNoFaction = prefix + plugin.tMessageString("fadmin-no-faction");
-		fWildernessEnter = prefix + plugin.tMessageString("fwilderness-enter");
-		fFactionEnter = prefix + plugin.tMessageString("ffaction-enter");
-		fWhoNoArgs = prefix + plugin.tMessageString("fwho-no-args");
-		fInviteNoArgs = prefix + plugin.tMessageString("finvite-no-args");
-		fInviteNoFaction = prefix + plugin.tMessageString("finvite-no-faction");
-		fDisbandYourFaction = prefix + plugin.tMessageString("fdisband-your-faction");
-		fDisbandOtherFaction = prefix + plugin.tMessageString("fdisband-other-faction");
-		fDisbandNoFaction = prefix + plugin.tMessageString("fdisband-no-faction");
-		fSpyOn = prefix + plugin.tMessageString("fspy-on");
-		fSpyOff = prefix + plugin.tMessageString("fspy-off");
-		fSpyNoPermission = prefix + plugin.tMessageString("fspy-no-permission");
-		fChatOn = prefix + plugin.tMessageString("fchat-on");
-		fChatOff = prefix + plugin.tMessageString("fchat-off");
-		fChatNoFaction = prefix + plugin.tMessageString("fchat-no-faction");*/
-		//fChatFormat = plugin.tMessageString("fchat-format");
 	}
-
 }
