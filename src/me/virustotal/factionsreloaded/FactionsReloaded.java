@@ -15,7 +15,6 @@ public class FactionsReloaded extends JavaPlugin {
 	
 	public void onEnable() {
 		plugin = this;
-		
 		//Snooper.newVariableInstances(this.getClass());
 		Snooper.loadListeners(this);
 		Snooper.loadCommands(this);

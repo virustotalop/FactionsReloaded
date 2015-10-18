@@ -11,7 +11,6 @@ import me.virustotal.factionsreloaded.objects.FHome;
 import me.virustotal.factionsreloaded.objects.FPlayer;
 import me.virustotal.factionsreloaded.objects.FWarp;
 import me.virustotal.factionsreloaded.objects.Faction;
-import me.virustotal.factionsreloaded.objects.FactionEnum;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -55,10 +54,26 @@ public class ConfigHandler {
 	protected static void loadConfigs(FactionsReloaded plugin)
 	{
 		
+		File boardFile = new File(plugin.getDataFolder().getPath(),"board.yml");
+		File configFile = new File(plugin.getDataFolder().getPath(),"config.yml");
+		File factionsFile = new File(plugin.getDataFolder().getPath(),"factions.yml");
+		File playerFile = new File(plugin.getDataFolder().getPath(), "players.yml");
+		
+		if(!configFile.exists())
+		{
+			plugin.saveDefaultConfig();
+		}
+		else
+		{
+			plugin.reloadConfig();
+		}
+		plugin.saveResource(boardFile.getName(), false);
+		plugin.saveResource(factionsFile.getName(), false);
+		plugin.saveResource(playerFile.getName(), false);
+		
 		/*Faction values
 		 * 
 		 */
-		
 		maxFactionMembers = plugin.getConfig().getInt("max-faction-members");
 		maxFactionPower = plugin.getConfig().getInt("max-faction-power");
 		maxFactionLand = plugin.getConfig().getInt("max-faction-land");
@@ -87,8 +102,8 @@ public class ConfigHandler {
 		
 		
 		//Misc values
-		prefix = plugin.getConfig().getString("prefix");
-		fChatFormat = plugin.getConfig().getString("fchat-format");
+		prefix = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("prefix"));
+		fChatFormat = ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("fchat-format"));
 		
 		//Help menu
 		
@@ -106,37 +121,6 @@ public class ConfigHandler {
 		 * 
 		 */
 		
-		File boardFile = new File(plugin.getDataFolder().getPath(),"board.yml");
-		File configFile = new File(plugin.getDataFolder().getPath(),"config.yml");
-		File factionsFile = new File(plugin.getDataFolder().getPath(),"factions.yml");
-		File playerFile = new File(plugin.getDataFolder().getPath(), "players.yml");
-		
-		if(!boardFile.exists())
-		{
-			plugin.saveResource("board.yml", true);
-		}
-		else
-		{
-			//save
-			
-		}
-		if(!configFile.exists())
-		{
-			plugin.saveDefaultConfig();
-		}
-		else
-		{
-			plugin.reloadConfig();
-		}
-		if(!factionsFile.exists())
-		{
-			plugin.saveResource("factions.yml", true);
-		}
-		else
-		{
-			//save
-		}
-		
 		/*Load in factions, fwarps and fhomes          - Do optimizations to storage later
 		 *Populates the list in the main factions class
 		 *Creates a new object for each faction
@@ -152,9 +136,17 @@ public class ConfigHandler {
 			int power = factionsConfig.getInt(name + ".power");
 			int land = factionsConfig.getInt(name + ".land");
 			boolean open = factionsConfig.getBoolean(name + ".open");
-			ArrayList<UUID> members = (ArrayList<String>) factionsConfig.getStringList(name + ".members");
-			UUID admin = factionsConfig.getString(name + ".admin");
-			ArrayList<UUID> mods = (ArrayList<String>) factionsConfig.getStringList(name + ".mods");
+			ArrayList<UUID> members = new ArrayList<UUID>();
+			for(String member : factionsConfig.getStringList(name + ".members"))
+			{
+				members.add(UUID.fromString(member));
+			}
+			UUID admin = UUID.fromString(factionsConfig.getString(name + ".admin"));
+			ArrayList<UUID> mods = new ArrayList<UUID>();
+			for(String mod : factionsConfig.getStringList(name + ".mods"))
+			{
+				mods.add(UUID.fromString(mod));
+			}
 			Faction fac = new Faction(name,tag,power,land,open, admin,mods, members);
 			String[] locSplit = factionsConfig.getString(name + ".fhome.location").split(",");
 			int x = Integer.parseInt(locSplit[0]);
@@ -199,7 +191,6 @@ public class ConfigHandler {
 		
 		/*Loads in entirety of the board
 		 */
-		
 		YamlConfiguration boardConfig = YamlConfiguration.loadConfiguration(boardFile);
 		for(String string : boardConfig.getStringList("board"))
 		{
@@ -209,7 +200,6 @@ public class ConfigHandler {
 		
 		/*Loads in faction players
 		 */
-		
 		YamlConfiguration playerConfig = YamlConfiguration.loadConfiguration(playerFile);
 		Set<String> pkeys = playerConfig.getKeys(false);
 		for(String string : pkeys)
