@@ -1,3 +1,5 @@
+prefix: "&0[&cFactions&0] &6"
+fchat-format: "&6[FChat] %message%"
 #Use 0 for the values below to make them unlimited
 max-faction-members: 0
 max-faction-power: 0

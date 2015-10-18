@@ -22,14 +22,14 @@ public class FactionLandListener implements Listener {
 	public void move(PlayerMoveEvent e)
 	{
 		if(!e.getFrom().getChunk().equals(e.getTo().getChunk()))
-		{
+		{ 
 			Chunk fromChunk = e.getFrom().getChunk();
 			Chunk toChunk = e.getFrom().getChunk();
 			Faction from = Board.getFaction(fromChunk.getWorld().getName(), fromChunk.getX(), fromChunk.getZ());
 			Faction to = Board.getFaction(toChunk.getWorld().getName(),toChunk.getX(),toChunk.getZ());
 			
 			if(!from.equals(to))
-			e.getPlayer().sendMessage(Messages.fFactionEnter.replace("{faction}", to.getName()));
+				e.getPlayer().sendMessage(Messages.fFactionEnter.replace("%faction%", to.getName()));
 		}
 	}
 }

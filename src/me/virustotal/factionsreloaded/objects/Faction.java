@@ -19,6 +19,7 @@ public class Faction {
 	private String admin;
 	private ArrayList<String> mods;
 	private ArrayList<String> members;
+	private boolean pluginFaction;
 
 	public Faction(String name, String tag, int power, int land, boolean open, FactionEnum factionEnum, String admin, ArrayList<String> mods, ArrayList<String> members)
 	{
@@ -31,6 +32,21 @@ public class Faction {
 		this.admin = admin;
 		this.mods = mods;
 		this.members = members;
+		this.pluginFaction = false;
+	}
+	
+	public Faction(String name, String tag, int power, int land, boolean open, FactionEnum factionEnum, String admin, ArrayList<String> mods, ArrayList<String> members, boolean pluginFaction)
+	{
+		this.name = name;
+		this.tag = tag;
+		this.power = power;
+		this.land = land;
+		this.open = open;
+		this.factionEnum = factionEnum;
+		this.admin = admin;
+		this.mods = mods;
+		this.members = members;
+		this.pluginFaction = pluginFaction;
 	}
 
 	public String getName()
@@ -87,6 +103,11 @@ public class Faction {
 	{
 		this.tag = tag;
 	}
+
+	public boolean isPluginFaction()
+	{
+		return this.pluginFaction;
+	}
 	
 	public static boolean canClaim(Faction claimingFaction, String world,int x, int z)
 	{	
@@ -129,7 +150,7 @@ public class Faction {
 		}
 	}
 	
-	public static boolean canBuild(FPlayer fPlayer,int x,int z)
+	public static boolean canBuild(FPlayer fPlayer, int x, int z)
 	{
 		String world = Bukkit.getPlayer(fPlayer.getUUID()).getLocation().getWorld().getName(); //or if player has bypass
 		FactionsReloaded plugin = FactionsReloaded.get();
@@ -149,16 +170,18 @@ public class Faction {
 		return true;
 	}
 	
-	public static String getGroup(FPlayer fPlayer)
+	public static GroupEnum getFactionGroup(FPlayer fPlayer)
 	{
 		Faction fac = Faction.getFactionByName(fPlayer.getFaction());
 		Player player = Bukkit.getPlayer(fPlayer.getUUID());
-		if(fac.getAdmin().equals(player.getName()))
-			return "admin";
-		if(fac.getMods().contains(player.getName()))
-			return "mod";
+		String name = player.getName();
+		if(fac.getAdmin().equals(name))
+			return GroupEnum.ADMIN;
+		else if(fac.getMods().contains(name))
+			return GroupEnum.MOD;
+		else if(fac.getMembers().contains(name))
+			return GroupEnum.MEMBER;
 		
-		return "none";
+		return GroupEnum.NONE;
 	}
-	
 }

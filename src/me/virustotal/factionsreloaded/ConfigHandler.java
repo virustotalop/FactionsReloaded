@@ -24,29 +24,33 @@ import org.bukkit.potion.PotionEffectType;
 public class ConfigHandler {
 	
 	//Faction values
-	public int maxFactionMembers;
-	public int maxFactionPower;
-	public int maxFactionLand;
-	public int maxFactionWarps;
-	public int startingFactionWarps;
-	public int maxFactionTagSize;
+	public static int maxFactionMembers;
+	public static int maxFactionPower;
+	public static int maxFactionLand;
+	public static int maxFactionWarps;
+	public static int startingFactionWarps;
+	public static int maxFactionTagSize;
 	
 	//Player values
-	public int maxPlayerPower;
-	public int minimumPlayerPower;
-	public int startingPlayerPower;
-	public int lossOfPlayerPerDeath;
-	public long updatePlayerPowerTicks;
+	public static int maxPlayerPower;
+	public static int minimumPlayerPower;
+	public static int startingPlayerPower;
+	public static int lossOfPlayerPerDeath;
+	public static long updatePlayerPowerTicks;
 	
+	//Misc values
+	public static String prefix;
+	public static String fChatFormat;
 	
 	//Help Menu
-	public List<String> topOfMenu;
-	public List<String> helpMenu;
-	public int commandsPerPage;
+	public static List<String> topOfMenu;
+	public static List<String> helpMenu;
+	public static int commandsPerPage;
 	
 	//Block list
-	public boolean blockAny;
-	public List<String> blockedContainers;
+	public static boolean blockAny;
+	public static List<String> blockedContainers;
+	
 	
 	public void loadConfigs()
 	{
@@ -56,47 +60,48 @@ public class ConfigHandler {
 		 * 
 		 */
 		
-		this.maxFactionMembers = plugin.getConfig().getInt("max-faction-members");
-		this.maxFactionPower = plugin.getConfig().getInt("max-faction-power");
-		this.maxFactionLand = plugin.getConfig().getInt("max-faction-land");
-		this.maxFactionWarps = plugin.getConfig().getInt("max-faction-warps");
-		this.startingFactionWarps = plugin.getConfig().getInt("starting-faction-warps");
-		this.maxFactionTagSize = plugin.getConfig().getInt("max-faction-tag-size");
+		maxFactionMembers = plugin.getConfig().getInt("max-faction-members");
+		maxFactionPower = plugin.getConfig().getInt("max-faction-power");
+		maxFactionLand = plugin.getConfig().getInt("max-faction-land");
+		maxFactionWarps = plugin.getConfig().getInt("max-faction-warps");
+		startingFactionWarps = plugin.getConfig().getInt("starting-faction-warps");
+		maxFactionTagSize = plugin.getConfig().getInt("max-faction-tag-size");
 		
 		/*If faction values are set to 0 increase them to Integer,MAX_VALUE
 		 * 
 		 */
 		
-		if(this.maxFactionMembers == 0)
-			this.maxFactionMembers = Integer.MAX_VALUE;
-		if(this.maxFactionPower == 0)
-			this.maxFactionPower = Integer.MAX_VALUE;
-		if(this.maxFactionLand == 0)
-			this.maxFactionLand = Integer.MAX_VALUE;
+		if(maxFactionMembers == 0)
+			maxFactionMembers = Integer.MAX_VALUE;
+		if(maxFactionPower == 0)
+			maxFactionPower = Integer.MAX_VALUE;
+		if(maxFactionLand == 0)
+			maxFactionLand = Integer.MAX_VALUE;
 		
-		/*Player power values
-		 * 
-		 */
+		//Player power values
 		
-		this.maxPlayerPower = plugin.getConfig().getInt("max-player-power");
-		this.minimumPlayerPower = plugin.getConfig().getInt("minimum-player-power");
-		this.startingPlayerPower = plugin.getConfig().getInt("starting-player-power");
-		this.lossOfPlayerPerDeath = plugin.getConfig().getInt("loss-of-player-power-per-death");
-		this.updatePlayerPowerTicks = plugin.getConfig().getLong("update-player-power-ticks");
+		maxPlayerPower = plugin.getConfig().getInt("max-player-power");
+		minimumPlayerPower = plugin.getConfig().getInt("minimum-player-power");
+		startingPlayerPower = plugin.getConfig().getInt("starting-player-power");
+		lossOfPlayerPerDeath = plugin.getConfig().getInt("loss-of-player-power-per-death");
+		updatePlayerPowerTicks = plugin.getConfig().getLong("update-player-power-ticks");
 		
-		/* Help Menu
-		 * 
-		 */
 		
-		//this.topOfMenu = plugin.tConfigStringList("top-of-menu");
-		//this.helpMenu = plugin.tConfigStringList("help-menu");
-		this.commandsPerPage = plugin.getConfig().getInt("commands-per-page");
+		//Misc values
+		prefix = plugin.getConfig().getString("prefix");
+		fChatFormat = plugin.getConfig().getString("fchat-format");
+		
+		//Help menu
+		
+		//topOfMenu = plugin.tConfigStringList("top-of-menu");
+		//helpMenu = plugin.tConfigStringList("help-menu");
+		commandsPerPage = plugin.getConfig().getInt("commands-per-page");
 		
 		/*Blocked containers
 		 * 
 		 */
-		this.blockAny = plugin.getConfig().getBoolean("blockAny");
-		this.blockedContainers = plugin.getConfig().getStringList("blocked-containers");
+		blockAny = plugin.getConfig().getBoolean("blockAny");
+		blockedContainers = plugin.getConfig().getStringList("blocked-containers");
 		
 		/*Config files
 		 * 

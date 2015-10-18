@@ -1,5 +1,6 @@
 package me.virustotal.factionsreloaded;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,6 +10,8 @@ import me.virustotal.factionsreloaded.objects.FPlayer;
 import me.virustotal.factionsreloaded.objects.FWarp;
 import me.virustotal.factionsreloaded.objects.Faction;
 
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class FactionsReloaded extends JavaPlugin {
@@ -30,12 +33,20 @@ public class FactionsReloaded extends JavaPlugin {
 	public ConfigHandler config = new ConfigHandler();
 	public Messages messages;
 	
+	private File messageFile;
+	public YamlConfiguration mYaml;
+	
 	public void onEnable() {
 		plugin = this;
 		
 		//Snooper.newVariableInstances(this.getClass());
 		Snooper.loadListeners(this);
 		Snooper.loadCommands(this);
+		this.messageFile = new File(this.getDataFolder().getPath(),"messages.yml");
+		
+		this.saveResource(this.messageFile.getName(), false);
+		
+		this.mYaml = YamlConfiguration.loadConfiguration(messageFile);
 		
 		
 		//config.loadConfigs();
@@ -54,16 +65,17 @@ public class FactionsReloaded extends JavaPlugin {
 		return plugin;
 	}
 	
+	public String tMessageString(String val)
+	{
+		return ChatColor.translateAlternateColorCodes('&', mYaml.getString(val));
+	}
+	
 	/*public String tConfigString(String val)
 	{
 		return ChatColor.translateAlternateColorCodes('&', this.getConfig().getString(val));
 	}
 	
-	public String tMessageString(String val)
-	{
-		YamlConfiguration mYaml = YamlConfiguration.loadConfiguration(new File(this.getDataFolder().getPath(),"messages.yml"));
-		return ChatColor.translateAlternateColorCodes('&', mYaml.getString(val));
-	}
+	
 	
 	public List<String> tConfigStringList(String val)
 	{
