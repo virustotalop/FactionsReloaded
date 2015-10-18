@@ -2,7 +2,7 @@ package me.virustotal.factionsreloaded.objects;
 
 import java.util.ArrayList;
 
-import me.virustotal.factionsreloaded.FactionsReloaded;
+import me.virustotal.factionsreloaded.FactionCache;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 
 public class Faction {
 
+	public static ArrayList<Faction> factions = new ArrayList<Faction>();
 	private String name;
 	private String tag;
 	private int power;
@@ -20,6 +21,8 @@ public class Faction {
 	private ArrayList<String> mods;
 	private ArrayList<String> members;
 	private boolean pluginFaction;
+	private FHome fHome;
+	public ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
 
 	public Faction(String name, String tag, int power, int land, boolean open, FactionEnum factionEnum, String admin, ArrayList<String> mods, ArrayList<String> members)
 	{
@@ -109,6 +112,26 @@ public class Faction {
 		return this.pluginFaction;
 	}
 	
+	public FHome getFHome()
+	{
+		return this.fHome;
+	}
+	
+	public void setFHome(FHome fHome)
+	{
+		this.fHome = fHome;
+	}
+	
+	public ArrayList<FWarp> getFWarps()
+	{
+		return this.fWarps;
+	}
+	
+	public void setFWarps(ArrayList<FWarp> fWarps)
+	{
+		this.fWarps = fWarps;
+	}
+	
 	public static boolean canClaim(Faction claimingFaction, String world,int x, int z)
 	{	
 		Faction fac = Board.getFaction(world, x, z);
@@ -128,7 +151,7 @@ public class Faction {
 	
 	public static Faction getFactionByName(String name)
 	{
-		ArrayList<Faction> facs = FactionsReloaded.get().factions;
+		ArrayList<Faction> facs = factions;
 		for(Faction fac : facs)
 		{
 			if(fac.getName().equals(name))
@@ -153,9 +176,8 @@ public class Faction {
 	public static boolean canBuild(FPlayer fPlayer, int x, int z)
 	{
 		String world = Bukkit.getPlayer(fPlayer.getUUID()).getLocation().getWorld().getName(); //or if player has bypass
-		FactionsReloaded plugin = FactionsReloaded.get();
 		String pName = Bukkit.getPlayer(fPlayer.getUUID()).getName();
-		return Board.getFaction(world, x, z).equals(fPlayer.getFaction()) || Board.getFaction(world, x, z).equals("none") || plugin.bypassedPlayers.contains(pName);
+		return Board.getFaction(world, x, z).equals(fPlayer.getFaction()) || Board.getFaction(world, x, z).equals("none") || FactionCache.bypassedPlayers.contains(pName);
 	}
 	
 	

@@ -1,5 +1,6 @@
 package me.virustotal.factionsreloaded.listeners;
 
+import me.virustotal.factionsreloaded.ConfigHandler;
 import me.virustotal.factionsreloaded.FactionsReloaded;
 import me.virustotal.factionsreloaded.objects.FPlayer;
 
@@ -22,8 +23,8 @@ public class DeathPowerListener implements Listener {
 		Player player = e.getEntity();
 		FPlayer fPlayer = FPlayer.getFPlayer(player);
 		int currentPower = fPlayer.getPower();
-		int minPower = plugin.config.minimumPlayerPower;
-		int powerPerDeath = plugin.config.lossOfPlayerPerDeath;
+		int minPower = ConfigHandler.minimumPlayerPower;
+		int powerPerDeath = ConfigHandler.lossOfPlayerPerDeath;
 		
 		if(currentPower - powerPerDeath < minPower)
 		{

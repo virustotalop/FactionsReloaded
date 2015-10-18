@@ -1,6 +1,7 @@
 package me.virustotal.factionsreloaded.listeners;
 
 import me.virustotal.factionsreloaded.ConfigHandler;
+import me.virustotal.factionsreloaded.FactionCache;
 import me.virustotal.factionsreloaded.FactionsReloaded;
 import me.virustotal.factionsreloaded.Messages;
 import me.virustotal.factionsreloaded.objects.FPlayer;
@@ -27,7 +28,7 @@ public class FactionChatListener implements Listener {
 		
 		if(!fPlayer.getFaction().equals("none"))
 		{
-			if(!plugin.factionChat.contains(e.getPlayer().getName()))
+			if(!FactionCache.fChatPlayers.contains(e.getPlayer().getUniqueId()))
 			{
 				Faction fac = Faction.getFactionByName(fPlayer.getFaction());
 				String tag = fac.getTag(); //make sure to add brackets

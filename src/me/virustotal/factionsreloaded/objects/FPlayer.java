@@ -1,9 +1,9 @@
 package me.virustotal.factionsreloaded.objects;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
-import me.virustotal.factionsreloaded.FactionsReloaded;
-
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class FPlayer {
@@ -11,6 +11,7 @@ public class FPlayer {
 	private UUID uuid;
 	private int power;
 	private String faction;
+	private static ArrayList<FPlayer> fPlayers = new ArrayList<FPlayer>();
 	
 	public FPlayer(UUID uuid, int power, String faction)
 	{
@@ -36,9 +37,29 @@ public class FPlayer {
 	
 	public static FPlayer getFPlayer(Player player)
 	{
-		String pName = player.getName();
-		FactionsReloaded plugin = FactionsReloaded.get();
-		return plugin.fPlayerCache.get(pName);
+		for(FPlayer fPlayer : fPlayers)
+		{
+			if(fPlayer.getUUID().equals(player.getUniqueId()))
+				return fPlayer;
+		}
+		return null;
 	}
 	
+	public static FPlayer getFPlayer(String player)
+	{
+		Player p = Bukkit.getPlayer(player);
+		if(p == null)
+			return null;
+		for(FPlayer fPlayer : fPlayers)
+		{
+			if(fPlayer.getUUID().equals(p.getUniqueId()))
+				return fPlayer;
+		}
+		return null;
+	}
+	
+	public static ArrayList<FPlayer> getFPlayers()
+	{
+		return fPlayers;
+	}
 }

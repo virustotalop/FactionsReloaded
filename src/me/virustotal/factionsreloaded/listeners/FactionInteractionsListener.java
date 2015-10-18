@@ -1,5 +1,6 @@
 package me.virustotal.factionsreloaded.listeners;
 
+import me.virustotal.factionsreloaded.ConfigHandler;
 import me.virustotal.factionsreloaded.FactionsReloaded;
 import me.virustotal.factionsreloaded.objects.FPlayer;
 import me.virustotal.factionsreloaded.objects.Faction;
@@ -48,7 +49,7 @@ public class FactionInteractionsListener implements Listener {
 	@EventHandler
 	public void blockInteract(PlayerInteractEvent e)
 	{
-		if(plugin.config.blockAny)
+		if(ConfigHandler.blockAny)
 		{
 			if(e.getAction() == Action.RIGHT_CLICK_BLOCK)
 			{
@@ -57,7 +58,7 @@ public class FactionInteractionsListener implements Listener {
 				Chunk chunk = e.getClickedBlock().getChunk();
 				if(!Faction.canBuild(fPlayer, chunk.getX(), chunk.getZ()))
 				{
-					if(plugin.config.blockedContainers.contains(e.getClickedBlock().getType().name()))
+					if(ConfigHandler.blockedContainers.contains(e.getClickedBlock().getType().name()))
 					{
 						e.setCancelled(true);
 					}

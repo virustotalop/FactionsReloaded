@@ -25,9 +25,9 @@ public class FPlayerCacheListener implements Listener {
 	{	
 		Player player = e.getPlayer();
 		String pName = player.getName();
-		ArrayList<FPlayer> fPlayers = plugin.fPlayers;
+		ArrayList<FPlayer> fPlayers = FPlayer.fPlayers;
 		
-		if(plugin.fPlayerCache.containsKey(pName))
+		if(FPlayer.fPlayers.containsKey(pName))
 		{
 			plugin.fPlayerCache.remove(pName);
 		}

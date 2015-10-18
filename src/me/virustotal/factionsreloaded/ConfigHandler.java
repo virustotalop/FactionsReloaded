@@ -162,7 +162,7 @@ public class ConfigHandler {
 			int z = Integer.parseInt(locSplit[2]);
 			String world = locSplit[3];
 			Location loc = new Location(Bukkit.getWorld(world),y,z,x);
-			plugin.factions.add(fac);
+			
 			List<PotionEffect> potionEffects = new ArrayList<PotionEffect>();
 			for(String pEff : factionsConfig.getStringList(name + ".fhome.potion-effects"))
 			{
@@ -171,8 +171,8 @@ public class ConfigHandler {
 			}
 			
 			
-			//Add faction fHome to
-			plugin.fHomes.add(new FHome(fac,loc,potionEffects));
+			FHome fHome = new FHome(fac,loc,potionEffects);
+			ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
 			
 			
 			for(String fWarp : factionsConfig.getStringList(name + ".fwarps"))
@@ -188,8 +188,13 @@ public class ConfigHandler {
 				
 				Location wLoc = new Location(fWorld,fx,fy,fz);
 				
-				plugin.fWarps.add(new FWarp(fac,wLoc,warpName,group,password));
+				fWarps.add(new FWarp(fac,wLoc,warpName,group,password));
 			}
+			
+			fac.setFWarps(fWarps);
+			fac.setFHome(fHome);
+			
+			Faction.factions.add(fac);
 		}
 		
 		/*Loads in entirety of the board
@@ -199,7 +204,7 @@ public class ConfigHandler {
 		for(String string : boardConfig.getStringList("board"))
 		{
 			String[] split = string.split(",");
-			plugin.boards.add(new Board(Integer.parseInt(split[0]),Integer.parseInt(split[1]),split[2],split[3]));
+			Board.boards.add(new Board(Integer.parseInt(split[0]),Integer.parseInt(split[1]),split[2],split[3]));
 		}
 		
 		/*Loads in faction players
@@ -209,7 +214,7 @@ public class ConfigHandler {
 		Set<String> pkeys = playerConfig.getKeys(false);
 		for(String string : pkeys)
 		{
-			plugin.fPlayers.add(new FPlayer(UUID.fromString(string),playerConfig.getInt(string + ".power"),playerConfig.getString(string + ".faction")));
+			FPlayer.fPlayers.add(new FPlayer(UUID.fromString(string),playerConfig.getInt(string + ".power"),playerConfig.getString(string + ".faction")));
 		}
 		
 	}

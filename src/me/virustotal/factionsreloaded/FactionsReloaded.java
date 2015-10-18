@@ -1,14 +1,6 @@
 package me.virustotal.factionsreloaded;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import me.virustotal.factionsreloaded.objects.Board;
-import me.virustotal.factionsreloaded.objects.FHome;
-import me.virustotal.factionsreloaded.objects.FPlayer;
-import me.virustotal.factionsreloaded.objects.FWarp;
-import me.virustotal.factionsreloaded.objects.Faction;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.ChatColor;
@@ -18,20 +10,15 @@ public class FactionsReloaded extends JavaPlugin {
 	
 	private static FactionsReloaded plugin;
 	
-	public ArrayList<Faction> factions = new ArrayList<Faction>();
-	public ArrayList<FPlayer> fPlayers = new ArrayList<FPlayer>();
-	public ArrayList<Board> boards = new ArrayList<Board>();
-	public ArrayList<FHome> fHomes = new ArrayList<FHome>();
-	public ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
+	//public ArrayList<Faction> factions = new ArrayList<Faction>();
+	//public ArrayList<FPlayer> fPlayers = new ArrayList<FPlayer>();
+	//public ArrayList<Board> boards = new ArrayList<Board>();
+	//public ArrayList<FHome> fHomes = new ArrayList<FHome>();
+	//public ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
 	
-	public ArrayList<String> spyPlayers = new ArrayList<String>();
-	public ArrayList<String> bypassedPlayers = new ArrayList<String>();
-	public ArrayList<String> factionChat = new ArrayList<String>();
+	//public ArrayList<String> factionChat = new ArrayList<String>(); -> To be moved to ConfigHandler
 	
-	public HashMap<String,FPlayer> fPlayerCache = new HashMap<String,FPlayer>();
-	
-	public ConfigHandler config = new ConfigHandler();
-	public Messages messages;
+	//public HashMap<String,FPlayer> fPlayerCache = new HashMap<String,FPlayer>();
 	
 	private File messageFile;
 	public YamlConfiguration mYaml;
