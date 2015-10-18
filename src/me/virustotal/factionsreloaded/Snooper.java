@@ -30,14 +30,14 @@ public class Snooper {
 			JarFile jar = new JarFile(jarFile);
 			Enumeration<JarEntry> entries = jar.entries();
 			int count = 0;
-			
+
 			while(entries.hasMoreElements() )
 			{
 				JarEntry entry = entries.nextElement();
 				String name = entry.getName().replace('/', '.');
-				name = name.substring(0, name.lastIndexOf("."));
-				if(name.contains("me.virustotal"))
+				if(name.contains(".class"))
 				{
+					name = name.substring(0, name.lastIndexOf("."));
 					Class<?> theClass = Class.forName(name);
 					if(theClass.getInterfaces().length > 0)
 					{
@@ -95,6 +95,11 @@ public class Snooper {
 		{
 			ex.printStackTrace();
 		}
+	}
+	
+	protected static void loadPluginFactions(FactionsReloaded plugin)
+	{
+		
 	}
 	
 	protected static void loadCommands()

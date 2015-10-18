@@ -26,16 +26,15 @@ public class DeathPowerListener implements Listener {
 		int minPower = ConfigHandler.minimumPlayerPower;
 		int powerPerDeath = ConfigHandler.lossOfPlayerPerDeath;
 		
+		//set fPlayer power to minimum power if power would be less than minimum power
 		if(currentPower - powerPerDeath < minPower)
 		{
-			//set fPlayer power to minimum power
-			
+			fPlayer.setPower(minPower);
 		}
 		else
 		{
 			//set fPlayer power to currentPower - powerPerDeath
+			fPlayer.setPower(currentPower - powerPerDeath);
 		}
-		//update faction power
 	}
-
 }

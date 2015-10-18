@@ -214,7 +214,8 @@ public class ConfigHandler {
 		Set<String> pkeys = playerConfig.getKeys(false);
 		for(String string : pkeys)
 		{
-			FPlayer.fPlayers.add(new FPlayer(UUID.fromString(string),playerConfig.getInt(string + ".power"),playerConfig.getString(string + ".faction")));
+			UUID uuid = UUID.fromString(string);
+			FPlayer.getFPlayers().add(new FPlayer(uuid,playerConfig.getInt(string + ".power"),Faction.getFactionByName(playerConfig.getString(string + ".faction")), playerConfig.getString(string + ".last-known-name")));
 		}
 		
 	}

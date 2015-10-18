@@ -22,7 +22,7 @@ public class Faction {
 	private ArrayList<String> members;
 	private boolean pluginFaction;
 	private FHome fHome;
-	public ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
+	private ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
 
 	public Faction(String name, String tag, int power, int land, boolean open, FactionEnum factionEnum, String admin, ArrayList<String> mods, ArrayList<String> members)
 	{
@@ -194,7 +194,7 @@ public class Faction {
 	
 	public static GroupEnum getFactionGroup(FPlayer fPlayer)
 	{
-		Faction fac = Faction.getFactionByName(fPlayer.getFaction());
+		Faction fac = fPlayer.getFaction();
 		Player player = Bukkit.getPlayer(fPlayer.getUUID());
 		String name = player.getName();
 		if(fac.getAdmin().equals(name))

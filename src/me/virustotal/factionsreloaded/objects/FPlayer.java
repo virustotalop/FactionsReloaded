@@ -10,10 +10,12 @@ public class FPlayer {
 	
 	private UUID uuid;
 	private int power;
-	private String faction;
+	private int maxPower;
+	private Faction faction;
+	private String lastKnownName;
 	private static ArrayList<FPlayer> fPlayers = new ArrayList<FPlayer>();
 	
-	public FPlayer(UUID uuid, int power, String faction)
+	public FPlayer(UUID uuid, int power, Faction faction, String lastKnownName)
 	{
 		this.uuid = uuid;
 		this.power = power;
@@ -25,14 +27,39 @@ public class FPlayer {
 		return this.uuid;
 	}
 	
+	public int getMaxPower()
+	{
+		return this.maxPower;
+	}
+	
+	public void setMaxPower(int power)
+	{
+		this.power = power;
+	}
+	
 	public int getPower()
 	{
 		return this.power;
 	}
 	
-	public String getFaction()
+	public void setPower(int power)
+	{
+		this.power = power;
+	}
+	
+	public Faction getFaction()
 	{
 		return this.faction;
+	}
+	
+	public String getLastKnownName()
+	{
+		return this.lastKnownName;
+	}
+	
+	public void setLastKnownName(String lastKnownName)
+	{
+		this.lastKnownName = lastKnownName;
 	}
 	
 	public static FPlayer getFPlayer(Player player)

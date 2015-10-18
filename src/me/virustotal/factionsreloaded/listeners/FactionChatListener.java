@@ -30,22 +30,22 @@ public class FactionChatListener implements Listener {
 		{
 			if(!FactionCache.fChatPlayers.contains(e.getPlayer().getUniqueId()))
 			{
-				Faction fac = Faction.getFactionByName(fPlayer.getFaction());
+				Faction fac = fPlayer.getFaction();
 				String tag = fac.getTag(); //make sure to add brackets
-				String formattedMsg = Messages.fTagFormat.replace("{message}", e.getMessage());
-				formattedMsg = formattedMsg.replace("{tag}", tag);
+				String formattedMsg = Messages.fTagFormat.replace("%message%", e.getMessage());
+				formattedMsg = formattedMsg.replace("%tag%", tag);
 				e.setMessage(formattedMsg);
 			}
 			else
 			{
-				Faction fac = Faction.getFactionByName(fPlayer.getFaction());
+				Faction fac = fPlayer.getFaction();
 				e.getRecipients().clear();
 				for(String string : fac.getMembers())
 				{
 					if(Bukkit.getPlayer(string) != null)
 					e.getRecipients().add(Bukkit.getPlayer(string));
 				}
-				e.setMessage(ConfigHandler.fChatFormat.replace("{message}", e.getMessage()));
+				e.setMessage(ConfigHandler.fChatFormat.replace("%message%", e.getMessage()));
 			}
 		}
 	}

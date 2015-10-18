@@ -1,16 +1,16 @@
 package me.virustotal.factionsreloaded.listeners;
 
-import java.util.ArrayList;
+import java.util.UUID;
 
+import me.virustotal.factionsreloaded.ConfigHandler;
 import me.virustotal.factionsreloaded.FactionsReloaded;
 import me.virustotal.factionsreloaded.objects.FPlayer;
+import me.virustotal.factionsreloaded.objects.Faction;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerKickEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 
 public class FPlayerCacheListener implements Listener {
 	
@@ -24,56 +24,22 @@ public class FPlayerCacheListener implements Listener {
 	public void onJoin(PlayerJoinEvent e)
 	{	
 		Player player = e.getPlayer();
-		String pName = player.getName();
-		ArrayList<FPlayer> fPlayers = FPlayer.fPlayers;
+		UUID uuid = player.getUniqueId();
 		
-		if(FPlayer.fPlayers.containsKey(pName))
+		boolean contains = false;
+		for(FPlayer fPlayer : FPlayer.getFPlayers())
 		{
-			plugin.fPlayerCache.remove(pName);
-		}
-		
-		for(FPlayer fPlayer : fPlayers)
-		{
-			if(fPlayer.getUUID().equals(player.getUniqueId()))
+			if(fPlayer.getUUID().equals(uuid))
 			{
-				plugin.fPlayerCache.put(pName, fPlayer);
-				return;
+				contains = true;
+				fPlayer.setLastKnownName(player.getName());
+				break;
 			}
 		}
 		
-		FPlayer newPlayer = new FPlayer(player.getUniqueId(),plugin.config.startingPlayerPower,"none");
-		plugin.fPlayerCache.put(pName, newPlayer);
-		plugin.fPlayers.add(newPlayer);
-		/* Set player in the player config file
-		 */
-	}
-	
-	@EventHandler
-	public void onLeave(PlayerQuitEvent e)
-	{
-		Player player = e.getPlayer();
-		String pName = player.getName();
-		
-		FactionsReloaded plugin = FactionsReloaded.get();
-		
-		if(plugin.fPlayerCache.containsKey(pName))
+		if(!contains)
 		{
-			plugin.fPlayerCache.remove(pName);
+			FPlayer.getFPlayers().add(new FPlayer(player.getUniqueId(), ConfigHandler.startingPlayerPower, Faction.getFactionByName("wilderness"), player.getName()));
 		}
 	}
-	
-	@EventHandler
-	public void onKick(PlayerKickEvent e)
-	{
-		Player player = e.getPlayer();
-		String pName = player.getName();
-		
-		FactionsReloaded plugin = FactionsReloaded.get();
-		
-		if(plugin.fPlayerCache.containsKey(pName))
-		{
-			plugin.fPlayerCache.remove(pName);
-		}
-	}
-
 }

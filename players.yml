@@ -1,4 +1,7 @@
 uuid:
   power: 20
   faction: none
-  last-known-name: test
+  last-known-name: 'test'
+  bypass: false
+  chatspy: false
+  
