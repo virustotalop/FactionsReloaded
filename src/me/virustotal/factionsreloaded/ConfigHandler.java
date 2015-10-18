@@ -152,10 +152,10 @@ public class ConfigHandler {
 			int power = factionsConfig.getInt(name + ".power");
 			int land = factionsConfig.getInt(name + ".land");
 			boolean open = factionsConfig.getBoolean(name + ".open");
-			ArrayList<String> members = (ArrayList<String>) factionsConfig.getStringList(name + ".members");
-			String admin = factionsConfig.getString(name + ".admin");
-			ArrayList<String> mods = (ArrayList<String>) factionsConfig.getStringList(name + ".mods");
-			Faction fac = new Faction(name,tag,power,land,open,FactionEnum.OTHER, admin,mods, members);
+			ArrayList<UUID> members = (ArrayList<String>) factionsConfig.getStringList(name + ".members");
+			UUID admin = factionsConfig.getString(name + ".admin");
+			ArrayList<UUID> mods = (ArrayList<String>) factionsConfig.getStringList(name + ".mods");
+			Faction fac = new Faction(name,tag,power,land,open, admin,mods, members);
 			String[] locSplit = factionsConfig.getString(name + ".fhome.location").split(",");
 			int x = Integer.parseInt(locSplit[0]);
 			int y = Integer.parseInt(locSplit[1]);

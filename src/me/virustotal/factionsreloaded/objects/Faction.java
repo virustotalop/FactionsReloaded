@@ -1,8 +1,11 @@
 package me.virustotal.factionsreloaded.objects;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
-import me.virustotal.factionsreloaded.FactionCache;
+
+
+import me.virustotal.factionsreloaded.customevents.FactionLandClaimEvent;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
@@ -16,36 +19,33 @@ public class Faction {
 	private int power;
 	private int land;
 	private boolean open;
-	private FactionEnum factionEnum;
-	private String admin;
-	private ArrayList<String> mods;
-	private ArrayList<String> members;
+	private UUID admin;
+	private ArrayList<UUID> mods;
+	private ArrayList<UUID> members;
 	private boolean pluginFaction;
 	private FHome fHome;
 	private ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
 
-	public Faction(String name, String tag, int power, int land, boolean open, FactionEnum factionEnum, String admin, ArrayList<String> mods, ArrayList<String> members)
+	public Faction(String name, String tag, int power, int land, boolean open, UUID admin, ArrayList<UUID> mods, ArrayList<UUID> members)
 	{
 		this.name = name;
 		this.tag = tag;
 		this.power = power;
 		this.land = land;
 		this.open = open;
-		this.factionEnum = factionEnum;
 		this.admin = admin;
 		this.mods = mods;
 		this.members = members;
 		this.pluginFaction = false;
 	}
 	
-	public Faction(String name, String tag, int power, int land, boolean open, FactionEnum factionEnum, String admin, ArrayList<String> mods, ArrayList<String> members, boolean pluginFaction)
+	public Faction(String name, String tag, int power, int land, boolean open, UUID admin, ArrayList<UUID> mods, ArrayList<UUID> members, boolean pluginFaction)
 	{
 		this.name = name;
 		this.tag = tag;
 		this.power = power;
 		this.land = land;
 		this.open = open;
-		this.factionEnum = factionEnum;
 		this.admin = admin;
 		this.mods = mods;
 		this.members = members;
@@ -77,22 +77,17 @@ public class Faction {
 		return this.open;
 	}
 	
-	public FactionEnum getFactionEnum()
-	{
-		return this.factionEnum;
-	}
-	
-	public String getAdmin()
+	public UUID getAdmin()
 	{
 		return this.admin;
 	}
 	
-	public ArrayList<String> getMods()
+	public ArrayList<UUID> getMods()
 	{
 		return this.mods;
 	}
 	
-	public ArrayList<String> getMembers()
+	public ArrayList<UUID> getMembers()
 	{
 		return this.members;
 	}
@@ -162,25 +157,15 @@ public class Faction {
 	
 	public static void claim(Faction claimingFaction,Chunk chunk)
 	{
-		if(Faction.canClaim(claimingFaction,chunk.getWorld().getName(), chunk.getX(), chunk.getZ()))
-		{
-			
-			//do stuff with board
-		}
-		else
-		{
-			//sendMessage
-		}
+		Bukkit.getPluginManager().callEvent(new FactionLandClaimEvent(claimingFaction, chunk));
 	}
 	
 	public static boolean canBuild(FPlayer fPlayer, int x, int z)
 	{
 		String world = Bukkit.getPlayer(fPlayer.getUUID()).getLocation().getWorld().getName(); //or if player has bypass
 		String pName = Bukkit.getPlayer(fPlayer.getUUID()).getName();
-		return Board.getFaction(world, x, z).equals(fPlayer.getFaction()) || Board.getFaction(world, x, z).equals("none") || FactionCache.bypassedPlayers.contains(pName);
+		return Board.getFaction(world, x, z).equals(fPlayer.getFaction()) || Board.getFaction(world, x, z).equals("none") || FPlayer.fBypassEnabled(pName);
 	}
-	
-	
 	
 	public static void saveFactionToFile(Faction fac)
 	{

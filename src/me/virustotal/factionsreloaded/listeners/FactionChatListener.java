@@ -1,13 +1,15 @@
 package me.virustotal.factionsreloaded.listeners;
 
+import java.util.UUID;
+
 import me.virustotal.factionsreloaded.ConfigHandler;
-import me.virustotal.factionsreloaded.FactionCache;
 import me.virustotal.factionsreloaded.FactionsReloaded;
 import me.virustotal.factionsreloaded.Messages;
 import me.virustotal.factionsreloaded.objects.FPlayer;
 import me.virustotal.factionsreloaded.objects.Faction;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -28,7 +30,7 @@ public class FactionChatListener implements Listener {
 		
 		if(!fPlayer.getFaction().equals("none"))
 		{
-			if(!FactionCache.fChatPlayers.contains(e.getPlayer().getUniqueId()))
+			if(!FPlayer.getFPlayer(e.getPlayer()).getFChatEnabled())
 			{
 				Faction fac = fPlayer.getFaction();
 				String tag = fac.getTag(); //make sure to add brackets
@@ -40,10 +42,11 @@ public class FactionChatListener implements Listener {
 			{
 				Faction fac = fPlayer.getFaction();
 				e.getRecipients().clear();
-				for(String string : fac.getMembers())
+				for(UUID uuid : fac.getMembers())
 				{
-					if(Bukkit.getPlayer(string) != null)
-					e.getRecipients().add(Bukkit.getPlayer(string));
+					Player p = Bukkit.getPlayer(uuid);
+					if(p != null)
+						e.getRecipients().add(p);
 				}
 				e.setMessage(ConfigHandler.fChatFormat.replace("%message%", e.getMessage()));
 			}

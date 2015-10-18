@@ -10,16 +10,6 @@ public class FactionsReloaded extends JavaPlugin {
 	
 	private static FactionsReloaded plugin;
 	
-	//public ArrayList<Faction> factions = new ArrayList<Faction>();
-	//public ArrayList<FPlayer> fPlayers = new ArrayList<FPlayer>();
-	//public ArrayList<Board> boards = new ArrayList<Board>();
-	//public ArrayList<FHome> fHomes = new ArrayList<FHome>();
-	//public ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
-	
-	//public ArrayList<String> factionChat = new ArrayList<String>(); -> To be moved to ConfigHandler
-	
-	//public HashMap<String,FPlayer> fPlayerCache = new HashMap<String,FPlayer>();
-	
 	private File messageFile;
 	public YamlConfiguration mYaml;
 	

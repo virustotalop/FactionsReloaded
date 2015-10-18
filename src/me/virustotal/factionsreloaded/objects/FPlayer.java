@@ -13,6 +13,9 @@ public class FPlayer {
 	private int maxPower;
 	private Faction faction;
 	private String lastKnownName;
+	private boolean fSpyEnabled;
+	private boolean fBypassEnabled;
+	private boolean fChatEnabled;
 	private static ArrayList<FPlayer> fPlayers = new ArrayList<FPlayer>();
 	
 	public FPlayer(UUID uuid, int power, Faction faction, String lastKnownName)
@@ -20,6 +23,10 @@ public class FPlayer {
 		this.uuid = uuid;
 		this.power = power;
 		this.faction = faction;
+		this.lastKnownName = lastKnownName;
+		this.fBypassEnabled = false;
+		this.fBypassEnabled = false;
+		this.fChatEnabled = false;
 	}
 	
 	public UUID getUUID()
@@ -57,9 +64,29 @@ public class FPlayer {
 		return this.lastKnownName;
 	}
 	
+	public boolean getFSpyEnabled()
+	{
+		return this.fSpyEnabled;
+	}
+	
+	public boolean getFBypassEnabled()
+	{
+		return this.fBypassEnabled;
+	}
+	
 	public void setLastKnownName(String lastKnownName)
 	{
 		this.lastKnownName = lastKnownName;
+	}
+	
+	public boolean getFChatEnabled()
+	{
+		return this.fChatEnabled;
+	}
+	
+	public void setFChatEnabled(boolean fChatEnabled)
+	{
+		this.fChatEnabled = fChatEnabled;
 	}
 	
 	public static FPlayer getFPlayer(Player player)
@@ -74,15 +101,17 @@ public class FPlayer {
 	
 	public static FPlayer getFPlayer(String player)
 	{
-		Player p = Bukkit.getPlayer(player);
-		if(p == null)
-			return null;
-		for(FPlayer fPlayer : fPlayers)
-		{
-			if(fPlayer.getUUID().equals(p.getUniqueId()))
-				return fPlayer;
-		}
-		return null;
+		return FPlayer.getFPlayer(Bukkit.getPlayer(player));
+	}
+	
+	public static boolean fBypassEnabled(String player)
+	{
+		return FPlayer.getFPlayer(player).getFBypassEnabled();
+	}
+	
+	public static boolean fSpyEnabled(String player)
+	{
+		return FPlayer.getFPlayer(player).getFSpyEnabled();
 	}
 	
 	public static ArrayList<FPlayer> getFPlayers()
