@@ -133,6 +133,7 @@ public class ConfigHandler {
 		{
 			String name = key;
 			String tag = ChatColor.translateAlternateColorCodes('&',factionsConfig.getString(name + ".tag"));
+			String description = ChatColor.translateAlternateColorCodes('&', factionsConfig.getString(name + ".description"));
 			int power = factionsConfig.getInt(name + ".power");
 			int land = factionsConfig.getInt(name + ".land");
 			boolean open = factionsConfig.getBoolean(name + ".open");
@@ -147,7 +148,7 @@ public class ConfigHandler {
 			{
 				mods.add(UUID.fromString(mod));
 			}
-			Faction fac = new Faction(name,tag,power,land,open, admin,mods, members);
+			Faction fac = new Faction(name,tag,description, power,land,open, admin, mods, members, false);
 			String[] locSplit = factionsConfig.getString(name + ".fhome.location").split(",");
 			int x = Integer.parseInt(locSplit[0]);
 			int y = Integer.parseInt(locSplit[1]);

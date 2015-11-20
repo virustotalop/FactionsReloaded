@@ -1,5 +1,6 @@
 name:
-  tag:
+  tag: "test"
+  description: "This is a test faction!"
   power: 0
   land: 0
   open: false

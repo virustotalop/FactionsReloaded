@@ -14,8 +14,10 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.logging.Level;
 
+import me.virustotal.factionsreloaded.commands.FBaseCommand;
+import me.virustotal.factionsreloaded.commands.SubCommand;
+
 import org.bukkit.Bukkit;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 
@@ -35,7 +37,7 @@ public class Snooper {
 			{
 				JarEntry entry = entries.nextElement();
 				String name = entry.getName().replace('/', '.');
-				if(name.contains(".class"))
+				if(name.endsWith(".class"))
 				{
 					name = name.substring(0, name.lastIndexOf("."));
 					Class<?> theClass = Class.forName(name);
@@ -66,24 +68,29 @@ public class Snooper {
 			JarFile jar = new JarFile(jarFile);
 			Enumeration<JarEntry> entries = jar.entries();
 			int count = 0;
-
+			FBaseCommand fBaseCommand = new FBaseCommand();
+			FactionsReloaded.get().getCommand("f").setExecutor(fBaseCommand);
+			
 			while(entries.hasMoreElements())
 			{
 				JarEntry entry = entries.nextElement();
 				String name = entry.getName().replace('/', '.');
-				name = name.substring(0, name.lastIndexOf("."));
-				if(name.contains("me.virustotal"))
+				if(name.endsWith(".class"))
 				{
+					name = name.substring(0, name.lastIndexOf("."));
 					Class<?> theClass = Class.forName(name);
-					if(theClass.getInterfaces().length > 0)
+					if(theClass.getSuperclass() != null)
 					{
-						if(Arrays.asList(theClass.getInterfaces()).contains(CommandExecutor.class))
+						if(theClass.getSuperclass().equals(SubCommand.class))
 						{
-							Method method = theClass.getMethod("getCmd");
-							Object instance = theClass.newInstance();
-							String command = (String) method.invoke(instance);
-							plugin.getCommand(command).setExecutor((CommandExecutor) instance);
-							count ++;
+							Field subCommands = SubCommand.class.getField("subCommands");
+							subCommands.setAccessible(true);
+							Object obj = subCommands.get(null);
+							Method addMethod = obj.getClass().getMethod("add", SubCommand.class);
+							SubCommand subCommand = (SubCommand) theClass.newInstance();
+							subCommand.setCmd(name.substring(0,name.indexOf("Command")).toLowerCase());
+							addMethod.invoke(null, subCommand);
+							count++;
 						}
 					}
 				}
@@ -91,18 +98,13 @@ public class Snooper {
 			plugin.getLogger().log(Level.INFO, count + " commands loaded!");
 			jar.close();
 		}
-		catch(IOException | URISyntaxException | InstantiationException | IllegalAccessException | ClassNotFoundException | IllegalArgumentException | SecurityException | InvocationTargetException | NoSuchMethodException ex)
+		catch(IOException | URISyntaxException | IllegalAccessException | ClassNotFoundException | IllegalArgumentException | SecurityException | NoSuchFieldException | NoSuchMethodException | InvocationTargetException | InstantiationException ex)
 		{
 			ex.printStackTrace();
 		}
 	}
 	
 	protected static void loadPluginFactions(FactionsReloaded plugin)
-	{
-		
-	}
-	
-	protected static void loadCommands()
 	{
 		
 	}

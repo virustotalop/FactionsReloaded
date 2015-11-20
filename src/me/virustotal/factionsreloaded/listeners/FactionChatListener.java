@@ -11,44 +11,48 @@ import me.virustotal.factionsreloaded.objects.Faction;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class FactionChatListener implements Listener {
 
 	private FactionsReloaded plugin;
-	
+
 	public FactionChatListener(FactionsReloaded plugin)
 	{
 		this.plugin = plugin;	
 	}
-	
-	@EventHandler
+
+	@EventHandler(priority = EventPriority.HIGHEST)
 	public void chat(AsyncPlayerChatEvent e)
 	{
-		FPlayer fPlayer = FPlayer.getFPlayer(e.getPlayer());
-		
-		if(!fPlayer.getFaction().equals("none"))
+		if(e.getRecipients().size() > 0)
 		{
-			if(!FPlayer.getFPlayer(e.getPlayer()).getFChatEnabled())
+			FPlayer fPlayer = FPlayer.getFPlayer(e.getPlayer());
+
+			if(!fPlayer.getFaction().equals("none"))
 			{
-				Faction fac = fPlayer.getFaction();
-				String tag = fac.getTag(); //make sure to add brackets
-				String formattedMsg = Messages.fTagFormat.replace("%message%", e.getMessage());
-				formattedMsg = formattedMsg.replace("%tag%", tag);
-				e.setMessage(formattedMsg);
-			}
-			else
-			{
-				Faction fac = fPlayer.getFaction();
-				e.getRecipients().clear();
-				for(UUID uuid : fac.getMembers())
+				if(!FPlayer.getFPlayer(e.getPlayer()).getFChatEnabled())
 				{
-					Player p = Bukkit.getPlayer(uuid);
-					if(p != null)
-						e.getRecipients().add(p);
+					Faction fac = fPlayer.getFaction();
+					String tag = fac.getTag(); //make sure to add brackets
+					String formattedMsg = Messages.fTagFormat.replace("%message%", e.getMessage());
+					formattedMsg = formattedMsg.replace("%tag%", tag);
+					e.setMessage(formattedMsg);
 				}
-				e.setMessage(ConfigHandler.fChatFormat.replace("%message%", e.getMessage()));
+				else
+				{
+					Faction fac = fPlayer.getFaction();
+					e.getRecipients().clear();
+					for(UUID uuid : fac.getMembers())
+					{
+						Player p = Bukkit.getPlayer(uuid);
+						if(p != null)
+							e.getRecipients().add(p);
+					}
+					e.setMessage(ConfigHandler.fChatFormat.replace("%message%", e.getMessage()));
+				}
 			}
 		}
 	}

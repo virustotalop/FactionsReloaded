@@ -23,6 +23,7 @@ public class Messages {
 	public static String fSetWarpNoFaction;
 	public static String fCreateNoArgs;
 	public static String fCreateInvalidName;
+	public static String fCreateTagInUse;
 	public static String fCreateAlreadyInFaction;
 	public static String fBypassOn;
 	public static String fBypassOff;

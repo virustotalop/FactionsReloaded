@@ -16,6 +16,7 @@ public class Faction {
 	public static ArrayList<Faction> factions = new ArrayList<Faction>();
 	private String name;
 	private String tag;
+	private String description;
 	private int power;
 	private int land;
 	private boolean open;
@@ -25,24 +26,12 @@ public class Faction {
 	private boolean pluginFaction;
 	private FHome fHome;
 	private ArrayList<FWarp> fWarps = new ArrayList<FWarp>();
-
-	public Faction(String name, String tag, int power, int land, boolean open, UUID admin, ArrayList<UUID> mods, ArrayList<UUID> members)
-	{
-		this.name = name;
-		this.tag = tag;
-		this.power = power;
-		this.land = land;
-		this.open = open;
-		this.admin = admin;
-		this.mods = mods;
-		this.members = members;
-		this.pluginFaction = false;
-	}
 	
-	public Faction(String name, String tag, int power, int land, boolean open, UUID admin, ArrayList<UUID> mods, ArrayList<UUID> members, boolean pluginFaction)
+	public Faction(String name, String tag, String description, int power, int land, boolean open, UUID admin, ArrayList<UUID> mods, ArrayList<UUID> members, boolean pluginFaction)
 	{
 		this.name = name;
 		this.tag = tag;
+		this.description = description;
 		this.power = power;
 		this.land = land;
 		this.open = open;
@@ -60,6 +49,11 @@ public class Faction {
 	public String getTag()
 	{
 		return this.tag;
+	}
+	
+	public String getDescription()
+	{
+		return this.description;
 	}
 
 	public int getPower()

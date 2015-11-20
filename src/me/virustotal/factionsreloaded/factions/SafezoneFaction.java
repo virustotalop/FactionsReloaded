@@ -3,13 +3,16 @@ package me.virustotal.factionsreloaded.factions;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import org.bukkit.ChatColor;
+
 import me.virustotal.factionsreloaded.objects.Faction;
 
 public class SafezoneFaction extends Faction {
 
-	public SafezoneFaction(String name, String tag, int power, int land,boolean open, UUID admin,ArrayList<UUID> mods, ArrayList<UUID> members) 
+	public SafezoneFaction() 
 	{
-		super(name, tag, power, land, open, admin, mods, members);
+		//To be configurable
+		super("safezone", ChatColor.GOLD + "[Safezone]" , ChatColor.GOLD + "Safezone", 0, 0, false, UUID.randomUUID(), new ArrayList<UUID>(), new ArrayList<UUID>(), true);
 	}
 
 }

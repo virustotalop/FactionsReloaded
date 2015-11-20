@@ -1,12 +1,12 @@
 package me.virustotal.factionsreloaded.commands;
 
+import java.util.ArrayList;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 public class FBaseCommand implements CommandExecutor {
-	
-	private String cmd = "f";
 	
 	public FBaseCommand()
 	{
@@ -16,15 +16,22 @@ public class FBaseCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) 
 	{
-	
+		
+		if(args == null)
+		{
+			SubCommand.getSubCommandByName("help").execute(sender, null);
+		}
+		
+		if(args.length == 1)
+		{
+			for(SubCommand subCommand : SubCommand.subCommands)
+			{
+				
+			}
+		}
 		
 		
 		return false;
-	}
-	
-	public String getCmd()
-	{
-		return this.cmd;
 	}
 
 }

@@ -36,7 +36,7 @@ public class FactionsReloaded extends JavaPlugin {
 		
 	}
 	
-	public static FactionsReloaded get() 
+	protected static FactionsReloaded get() 
 	{
 		return plugin;
 	}
