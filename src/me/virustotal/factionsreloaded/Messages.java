@@ -5,13 +5,15 @@ import java.util.ArrayList;
 
 public class Messages {
 	
-	public static String cannotClaimNoFaction;
-	public static String cannotDoFtagNoFaction;
-	public static String cannotDoFTagNotCorrectGroup;
-	public static String landClaimed;
+	public static String fCommandUsageFormat;
+	public static String fCommandDoesNotExist;
+	public static String fHelpMenuFormat;
+	public static String fLandClaimed;
 	public static String fTagNoArgs;
 	public static String fTagInUse;
 	public static String fTagTooLong;
+	public static String fTagNoFaction;
+	public static String fTagNotCorrectGroup;
 	public static String fTagFormat;
 	public static String fJoinNoArgs;
 	public static String fJoinSuccess;
@@ -20,6 +22,8 @@ public class Messages {
 	public static String fWarpNoArgs;
 	public static String fWarpNoFaction;
 	public static String fSetwarpNoArgs;
+	public static String fClaimNoFaction;
+	public static String fClaimNotCorrectGroup;
 	public static String fSetWarpNoFaction;
 	public static String fCreateNoArgs;
 	public static String fCreateInvalidName;
@@ -71,7 +75,7 @@ public class Messages {
 			}
 			try 
 			{
-				field.set(field, ConfigHandler.prefix + plugin.tMessageString(fName));
+				field.set(field, plugin.tMessageString(fName));
 			} 
 			catch (IllegalArgumentException | IllegalAccessException e) 
 			{

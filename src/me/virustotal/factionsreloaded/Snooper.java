@@ -16,6 +16,7 @@ import java.util.logging.Level;
 
 import me.virustotal.factionsreloaded.commands.FBaseCommand;
 import me.virustotal.factionsreloaded.commands.SubCommand;
+import me.virustotal.factionsreloaded.objects.Faction;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -103,10 +104,47 @@ public class Snooper {
 			ex.printStackTrace();
 		}
 	}
-	
+
 	protected static void loadPluginFactions(FactionsReloaded plugin)
 	{
-		
+		try
+		{
+			File jarFile = new File(plugin.getClass().getProtectionDomain().getCodeSource().getLocation().toURI());
+			JarFile jar = new JarFile(jarFile);
+			Enumeration<JarEntry> entries = jar.entries();
+			while(entries.hasMoreElements())
+			{
+				JarEntry entry = entries.nextElement();
+				String name = entry.getName().replace('/', '.');
+				if(name.endsWith(".class"))
+				{
+					name = name.substring(0, name.lastIndexOf("."));
+					Class<?> theClass = Class.forName(name);
+					if(theClass.getSuperclass() != null)
+					{
+						if(theClass.getSuperclass() == Faction.class)
+						{
+							if(theClass.getConstructors() != null)
+							{
+								if(theClass.getConstructors().length == 1 && theClass.getConstructors()[0].getParameterTypes().length == 0)
+								{
+									Faction faction = (Faction)theClass.newInstance();
+									if(faction.isPluginFaction())
+									{
+										Faction.factions.add(faction);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			jar.close();
+		}
+		catch(IOException | URISyntaxException | ClassNotFoundException | InstantiationException | IllegalAccessException ex)
+		{
+			ex.printStackTrace();
+		}
 	}
 	
 	protected static void cleanupVariables(Class<?> theClass)
