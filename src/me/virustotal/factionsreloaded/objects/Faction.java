@@ -5,7 +5,7 @@ import java.util.UUID;
 
 
 
-import me.virustotal.factionsreloaded.customevents.FactionLandClaimEvent;
+import me.virustotal.factionsreloaded.customevents.FactionClaimEvent;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
@@ -151,7 +151,7 @@ public class Faction {
 	
 	public static void claim(Faction claimingFaction,Chunk chunk)
 	{
-		Bukkit.getPluginManager().callEvent(new FactionLandClaimEvent(claimingFaction, chunk));
+		Bukkit.getPluginManager().callEvent(new FactionClaimEvent(claimingFaction, chunk));
 	}
 	
 	public static boolean canBuild(FPlayer fPlayer, int x, int z)

@@ -6,11 +6,11 @@ import org.bukkit.Chunk;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class FactionLandClaimEvent extends Event {
+public class FactionClaimEvent extends Event {
 
 	private Faction faction;
 	private Chunk chunk;
-	public FactionLandClaimEvent(Faction claimingFaction, Chunk chunk) 
+	public FactionClaimEvent(Faction claimingFaction, Chunk chunk) 
 	{
 		this.faction = claimingFaction;
 		this.chunk = chunk;

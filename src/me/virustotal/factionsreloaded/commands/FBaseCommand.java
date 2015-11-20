@@ -30,10 +30,11 @@ public class FBaseCommand implements CommandExecutor {
 			}
 			else
 			{
-				List<String> listArgs = Arrays.asList(args);
+				
 				String[] newArgs = null;
-				if(listArgs.size() > 1)
+				if(args.length > 1)
 				{	
+					List<String> listArgs = Arrays.asList(args);
 					listArgs.remove(0);
 					newArgs = listArgs.toArray(new String[listArgs.size()]);
 				}

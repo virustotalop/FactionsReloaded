@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 import me.virustotal.factionsreloaded.Messages;
 import me.virustotal.factionsreloaded.commands.SubCommand;
-import me.virustotal.factionsreloaded.customevents.FactionLandClaimEvent;
+import me.virustotal.factionsreloaded.customevents.FactionClaimEvent;
 import me.virustotal.factionsreloaded.objects.FPlayer;
 import me.virustotal.factionsreloaded.objects.Faction;
 
@@ -17,7 +17,7 @@ public class ClaimCommand extends SubCommand {
 	@Override
 	public void execute(CommandSender sender, String[] args)
 	{
-		//todo add radius claiming
+		//TODO add radius claiming
 		if(!(sender instanceof Player))
 			return;
 		
@@ -32,7 +32,7 @@ public class ClaimCommand extends SubCommand {
 		
 		if(correctGroup)
 		{
-			Bukkit.getPluginManager().callEvent(new FactionLandClaimEvent(faction, player.getLocation().getChunk()));
+			Bukkit.getPluginManager().callEvent(new FactionClaimEvent(faction, player.getLocation().getChunk()));
 		}
 		else if(!correctGroup)
 			player.sendMessage(Messages.fClaimNotCorrectGroup);
